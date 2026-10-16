@@ -207,6 +207,13 @@ computing. The response is to move to the cloud and deploy there.
   systems use a public cloud provider, but few have actually left on-prem cite:[klas2025cloud].
   Small sample (36 systems), so directional only. "On the cloud" usually means some workloads or a
   hosted EHR, not a research computing platform.
+* *What ASTP's "predictive AI" counts* (from the brief's survey question, checked 2026-10-16):
+  "machine learning _or other predictive models_ that display output or recommendations ... in
+  your EHR or an app embedded in or launched by your EHR". So it includes non-ML statistical
+  scores (APACHE IV is the survey's own example) and operational models (no-shows, billing), and it
+  _excludes_ AI outside the EHR -- e.g. imaging AI running in PACS or on the scanner. The 3B slide
+  labels it "predictive AI"; strictly it is "EHR-integrated predictive models". Figures verified
+  against the brief's table: system 86%, independent 37%, urban 81%, rural 56% (2024).
 * *Regional variation -- the data shows a resource divide.* Predictive AI use: system-affiliated
   hospitals 86% vs independent 37%; urban 81% vs rural 56%; critical access 50% cite:[astp2025].
   Generative AI: major teaching hospitals 54% early adopters vs 26% for non-teaching
