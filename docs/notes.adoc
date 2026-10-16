@@ -69,8 +69,21 @@ generative effort goes where LLMs plausibly fit: interpreting free-text clinical
 
 * *Predictive AI is widespread but mostly vendor-supplied and EHR-embedded*: 71% of US hospitals
   used EHR-integrated predictive AI in 2024 cite:[astp2025], typically for inpatient risk and
-  scheduling, mostly from the EHR vendor (79%) cite:[nong2025]. That is the "AI" hospitals mean
-  when they say they have AI -- not models they build or run themselves.
+  scheduling. By source in 2024: 80% use models from their EHR vendor, 52% from third parties, and
+  50% models they built themselves (categories overlap) cite:[astp2025]; 2023 figures were similar
+  cite:[nong2025]. So predictive, yes; but mostly vendor-supplied, with self-built models a large
+  minority (half of hospitals run at least one). Growth in third-party and self-built models is
+  concentrated in health systems cite:[astp2025].
+* *On "mostly self-built"*: Rudolph recalls a recent study finding hospital AI overwhelmingly
+  predictive _and_ mostly built in-house by hospital scientists and engineers. Searched 2026-10-16
+  and not found. The national data says the opposite on sourcing (above). It may hold for academic
+  centres -- self-development and local evaluation skew to well-resourced, system-affiliated
+  hospitals cite:[nong2025] -- but no study isolating academic centres turned up. A Lancet Digital
+  Health viewpoint (2026) makes the related regulatory point: models built in-house by a health
+  system can reach patients without FDA review. Usable on stage: "half of US hospitals run AI they
+  built themselves" -- and those models need compute and governance.
+* *Recency*: the newest national figures describe 2024 (ASTP brief Sep 2025; Everson et al.
+  Dec 2025). The AHA survey lags about 18 months; no 2025-data release was found.
 * *Cleared clinical AI is overwhelmingly imaging*: roughly three-quarters of FDA AI device
   authorizations are radiology cite:[fda_ai_devices] (trade-press count; verify before a slide).
 * *Generative AI in hospitals is text and documentation*: 31.5% of hospitals had EHR-integrated
