@@ -1,10 +1,10 @@
 # Computing Infrastructure for Clinical AI
 
+### ▶ [View the slides](https://rudolphpienaar.github.io/NSDF2026/) — https://rudolphpienaar.github.io/NSDF2026/
+
 Slides for Rudolph Pienaar's talk at the **NSDF Summit on Federated Autonomous Science**,
 Monday 19 October 2026, Discovery Partners Institute, Chicago. Session: *Science Domains and
 Trustworthy Autonomy* (10:30–12:00), 10-minute slot.
-
-**Live deck:** https://rudolphpienaar.github.io/NSDF2026/
 
 The argument in one line: the clinical AI that delivers value is small, predictive and local —
 and hospitals can neither *run* it (they were never built to compute) nor *approve* it (governance
@@ -61,3 +61,7 @@ deck unannounced — bump the pin deliberately. The runner is pinned to `ubuntu-
 Every number on a slide carries a source line; full references are in
 [`docs/refs.bib`](docs/refs.bib). Journal entries were checked against PubMed; trade and vendor
 surveys are marked as such.
+
+## License
+
+[MIT](LICENSE) © 2026 Rudolph Pienaar
