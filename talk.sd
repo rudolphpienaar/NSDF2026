@@ -93,6 +93,81 @@
         margin-left: "0.5ch"
     ".term .snippet:has(.pair)::before, .term .snippet:has(> .dim:only-child)::before":
         content: "''"
+    ".grow":
+        display: "inline-block"
+        position: "relative"
+        width: "0"
+        vertical-align: "bottom"
+        text-indent: "0"
+        transition: "width 0.9s cubic-bezier(0.25, 0.8, 0.25, 1)"
+    ".fill":
+        display: "block"
+        overflow: "hidden"
+        white-space: "nowrap"
+        text-indent: "0"
+    ".snippet:not(.sl-hidden) .grow":
+        width: "var(--w)"
+    ".grow::after":
+        content: "''"
+        position: "absolute"
+        top: "12%"
+        bottom: "12%"
+        right: "-0.25ch"
+        width: "0.5ch"
+        border-radius: "40%"
+        background: "#ffffff"
+        box-shadow: "0 0 10px 3px currentColor, 0 0 28px 10px currentColor"
+        opacity: "1"
+        pointer-events: "none"
+    ".snippet:not(.sl-hidden) .grow::after":
+        opacity: "0"
+        transition: "opacity 0.45s ease-out 0.85s"
+    ".snippet:not(.sl-hidden) .grow.g2":
+        transition-delay: "0.25s"
+    ".snippet:not(.sl-hidden) .grow.g2::after":
+        transition: "opacity 0.45s ease-out 1.1s"
+    ".grow.w1":
+        --w: "1ch"
+    ".grow.w2":
+        --w: "2ch"
+    ".grow.w3":
+        --w: "3ch"
+    ".grow.w4":
+        --w: "4ch"
+    ".grow.w5":
+        --w: "5ch"
+    ".grow.w6":
+        --w: "6ch"
+    ".grow.w7":
+        --w: "7ch"
+    ".grow.w8":
+        --w: "8ch"
+    ".grow.w9":
+        --w: "9ch"
+    ".grow.w10":
+        --w: "10ch"
+    ".grow.w11":
+        --w: "11ch"
+    ".grow.w12":
+        --w: "12ch"
+    ".grow.w13":
+        --w: "13ch"
+    ".grow.w14":
+        --w: "14ch"
+    ".grow.w15":
+        --w: "15ch"
+    ".grow.w16":
+        --w: "16ch"
+    ".grow.w17":
+        --w: "17ch"
+    ".grow.w18":
+        --w: "18ch"
+    ".grow.w19":
+        --w: "19ch"
+    ".grow.w20":
+        --w: "20ch"
+    ".grow.w21":
+        --w: "21ch"
     "#slide-5":
         --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-6":
@@ -338,12 +413,12 @@
     .div{.class{term}
 .typewriter{$> survey --year=2026}
       .o{.span{.class{dim} use any "AI" -- surveys don't say which kind; top uses are generative}}
-      .o{.span{.class{lbl} health systems}.span{.class{bar} ███████████████}.span{.class{pct} 75%}}
-      .o{.span{.class{lbl} physicians}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
+      .o{.span{.class{lbl} health systems}.span{.class{grow bar w15}.span{.class{fill} ███████████████}}.span{.class{pct} 75%}}
+      .o{.span{.class{lbl} physicians}.span{.class{grow bar w16}.span{.class{fill} ████████████████}}.span{.class{pct} 81%}}
       .o{.span{.class{dim} top use in health systems: ambient note-taking (generative)}}
-      .o{.span{.class{lbl} clinical notes}.span{.class{bar} █████████████▌}.span{.class{pct} 68%}}
+      .o{.span{.class{lbl} clinical notes}.span{.class{grow bar w14}.span{.class{fill} █████████████▌}}.span{.class{pct} 68%}}
       .o{.span{.class{dim} FDA-cleared AI devices (predictive) that read images}}
-      .o{.span{.class{lbl} radiology}.span{.class{bar} ███████████████}.span{.class{pct} 76%}}
+      .o{.span{.class{lbl} radiology}.span{.class{grow bar w15}.span{.class{fill} ███████████████}}.span{.class{pct} 76%}}
       .o{1,614 FDA-cleared AI devices -- tagged as generative / LLM-based: .bf{none}.}
     }
     .div{.class{prompt} GENERATIVE AI WRITES THE NOTES. PREDICTIVE AI READS THE IMAGES.}
@@ -392,8 +467,8 @@
     .div{.class{term}
 .typewriter{$> benchmark --task=radiology --year=2026}
       .o{.span{.class{dim} score out of 2000: right answers earn points, confident wrong answers lose them}}
-      .o{.span{.class{lbl} radiologists}.span{.class{bar} █████████▌}.span{.class{pct} 989}}
-      .o{.span{.class{lbl} best AI model}.span{.class{bar} ███████▌}.span{.class{pct} 758}}
+      .o{.span{.class{lbl} radiologists}.span{.class{grow bar w10}.span{.class{fill} █████████▌}}.span{.class{pct} 989}}
+      .o{.span{.class{lbl} best AI model}.span{.class{grow bar w8}.span{.class{fill} ███████▌}}.span{.class{pct} 758}}
       .o{16 frontier models tested, incl. Gemini 3 Pro, GPT-5.6, Claude Fable 5. .bf{None} reached the radiologists.}
       .o{Diffusion models .bf{make and clean} images -- they don't read them.}
     }
@@ -442,11 +517,11 @@
 .typewriter{$> stats --ai --by=hospital --year=2024}
       .o{.span{.class{dim} % of US hospitals using each kind, built into the EHR (2024, same national survey)}}
       .o{.span{.class{lbl} }.span{.class{pair}.span{.class{barp} █}.span{.class{dim} predictive}}.span{.class{pair}.span{.class{barg} █}.span{.class{dim} generative}}}
-      .o{.span{.class{lbl} all hospitals}.span{.class{pair}.span{.class{barp} ███████}.span{.class{barpn} 71%}}.span{.class{pair}.span{.class{barg} ███}.span{.class{bargn} 31.5%}}}
-      .o{.span{.class{lbl} in a health system}.span{.class{pair}.span{.class{barp} ████████▌}.span{.class{barpn} 86%}}.span{.class{pair}.span{.class{barg} ███▌}.span{.class{bargn} 38.5%}}}
-      .o{.span{.class{lbl} independent}.span{.class{pair}.span{.class{barp} ███▌}.span{.class{barpn} 37%}}.span{.class{pair}.span{.class{barg} █▌}.span{.class{bargn} 16.3%}}}
-      .o{.span{.class{lbl} urban}.span{.class{pair}.span{.class{barp} ████████}.span{.class{barpn} 81%}}.span{.class{pair}.span{.class{barg} ███▌}.span{.class{bargn} 35.5%}}}
-      .o{.span{.class{lbl} rural}.span{.class{pair}.span{.class{barp} █████▌}.span{.class{barpn} 56%}}.span{.class{pair}.span{.class{barg} ██▌}.span{.class{bargn} 25.4%}}}
+      .o{.span{.class{lbl} all hospitals}.span{.class{pair}.span{.class{grow barp w7}.span{.class{fill} ███████}}.span{.class{barpn} 71%}}.span{.class{pair}.span{.class{grow barg w3 g2}.span{.class{fill} ███}}.span{.class{bargn} 31.5%}}}
+      .o{.span{.class{lbl} in a health system}.span{.class{pair}.span{.class{grow barp w9}.span{.class{fill} ████████▌}}.span{.class{barpn} 86%}}.span{.class{pair}.span{.class{grow barg w4 g2}.span{.class{fill} ███▌}}.span{.class{bargn} 38.5%}}}
+      .o{.span{.class{lbl} independent}.span{.class{pair}.span{.class{grow barp w4}.span{.class{fill} ███▌}}.span{.class{barpn} 37%}}.span{.class{pair}.span{.class{grow barg w2 g2}.span{.class{fill} █▌}}.span{.class{bargn} 16.3%}}}
+      .o{.span{.class{lbl} urban}.span{.class{pair}.span{.class{grow barp w8}.span{.class{fill} ████████}}.span{.class{barpn} 81%}}.span{.class{pair}.span{.class{grow barg w4 g2}.span{.class{fill} ███▌}}.span{.class{bargn} 35.5%}}}
+      .o{.span{.class{lbl} rural}.span{.class{pair}.span{.class{grow barp w6}.span{.class{fill} █████▌}}.span{.class{barpn} 56%}}.span{.class{pair}.span{.class{grow barg w3 g2}.span{.class{fill} ██▌}}.span{.class{bargn} 25.4%}}}
       .o{.span{.class{dim} predictive = ML or statistical risk models · generative = LLMs (ChatGPT, Gemini, DAX)}}
     }
     .div{.class{prompt} THE HYPE IS GENERATIVE. THE USE IS PREDICTIVE. BOTH FOLLOW THE MONEY.}

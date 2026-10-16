@@ -337,6 +337,11 @@ Shape concerns:
   returns to the outline; `f` toggles the deck's own fullscreen. In browser fullscreen Esc is
   reserved by the browser (it exits fullscreen), so use Backspace -- especially on the tablet
   (Vivaldi/Android has no Keyboard Lock). From FNNDSC/slidedown#2.
+* Bar charts animate on reveal: each bar grows from zero (0.9 s, eased) with a glowing flare riding
+  its leading edge that fades once it stops; in the paired chart the generative bar starts 0.25 s
+  after the predictive one. CSS only: `.grow` (width transition to `--w`, set by class `wN`) wraps
+  a clipped `.fill`; the flare is `.grow::after`. Measured 60 fps with all ten bars animating at
+  once (headless, no GPU). Not done: honouring reduced-motion -- deck CSS can't hold `@media`.
 * No blank lines inside slide bodies -- slidedown turns them into `<br>`.
 * Deck order: title, whoami, whatido, hub (`.id{outline}`), then the spokes, two slides each
   (conclusions one). `transition: zoom` is on: the chosen hub entry flies up to become the
@@ -360,6 +365,7 @@ Shape concerns:
   on top of the #1 merge) and deploys `talk/`. Repin to the #2 merge commit once merged. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
 
 == Open questions
+
 
 * Section 1: the opening slide now says "advisory, a human reads every output" -- check it matches
   what Rudolph wants to claim about BCH.
