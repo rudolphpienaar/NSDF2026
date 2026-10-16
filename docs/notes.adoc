@@ -1,0 +1,97 @@
+= Computing Infrastructure for Clinical AI -- working notes
+:toc: macro
+:toclevels: 2
+
+Living document. Current thinking only -- rewrite, don't append.
+
+toc::[]
+
+== The slot
+
+* NSDF Summit on Federated Autonomous Science, Mon 19 Oct 2026, Chicago (DPI, 200 S Wacker).
+* Session: _Science Domains and Trustworthy Autonomy_, 10:30--12:00, moderator Mike Papka.
+* *10 minutes*, then a 20-minute cross-domain discussion shared with Hart (Internet2), Alter (Utah,
+  multiomics), Bremer (LLNL), Nikolich (UIUC), Xu (NVIDIA), Kirby (Utah, AURORA).
+* Listed title: _Computing infrastructure needs and challenges for clinical AI_.
+* Room: facility operators, cyberinfrastructure and network people, standards bodies, funders.
+  Outputs feed a public post-Summit brief -- so a quotable line or two matters.
+* Health neighbours on the day: Musen (community standards, 9:15), Chaudhary (private data
+  repositories, 1:30), Mainkar (federated surgical data, 1:30).
+
+== Thesis (draft)
+
+The hard part of clinical AI was never the model. It is everything around it -- and "everything
+around it" is infrastructure.
+
+== Shape
+
+Numbered outline as a slidedown `.nexus{}` hub, as in the Red Hat talk: each section is a
+spoke (`.jump{.target{...}}`), advancing off a spoke's end returns to the hub, Esc returns from
+anywhere, and visited spokes are dimmed. Pick by number, arrows + Enter, or click. Order is
+chosen live, so sections can be skipped if time runs short. See
+`~/src/slidedown/examples/nexus/nexus-demo.sd`.
+
+NOTE: no copy of the nexus version of the Red Hat deck exists anywhere reachable. Checked
+2026-10-16: `RedHat2026_Hackathon` (local + GitHub, one commit, linear show-of-hands deck),
+`RedHat2026_ClinicalAI` (GitHub, May 2026 roundtable deck, pre-nexus), all slidedown branches,
+stashes and unreachable commits, and GitHub code search. Rebuilt from memory here instead.
+
+[cols="1,4,6"]
+|===
+|# |Section |Intent / open questions
+
+|1 |Current state of "AI" in hospitals
+|What's actually deployed vs the headlines. Red Hat thread 1 is raw material: cleared AI is
+predictive and imaging; generative landed in documentation/admin, always human-read.
+
+|2 |What exactly is "AI"?
+|Predictive vs generative; probabilism is the task, not a bug. Red Hat threads 2--3. Ties to the
+session's "trustworthy autonomy" framing.
+
+|3 |What is computing in a hospital?
+|_Open -- Rudolph has ideas._
+
+|4 |Governance -- a good idea with a challenging application
+|_Open -- Rudolph has ideas._
+
+|5 |It's all really about the infrastructure
+|The thesis lands here.
+
+|6 |What can be done?
+|Likely compute-to-data / HARBOR (Red Hat thread 5) -- the strongest fit for an NSDF room.
+
+|7 |Conclusions
+|
+|===
+
+=== Shape concerns
+
+* Seven spokes in ten minutes is ~80 s each, before the intro. The hub makes skipping cheap;
+  merging (1+2, 3+5) is still an option.
+* "It's all about the infrastructure" is the thesis, not a peer section -- it may work better as
+  the turn the earlier sections build to.
+
+== Format and look
+
+* slidedown, `terminal` theme. Each command + its output is a terminal window (`.term` in
+  `talk.sd`); console syntax highlighting on typewriter prompts.
+* Needs slidedown `main` at or after FNNDSC/slidedown#1 (merged 2026-10-16): deck CSS beats
+  theme, console highlighting, `tw-done`, nexus cursor box, returns keep typed menus.
+* Build: `uv run --project ~/src/slidedown slidedown . talk --inputFile talk.sd --theme terminal`.
+* Terminal behaviour: the cursor sits at the end of the command while it types, then follows the
+  last printed line as bullets reveal. On the hub, the menu prints line by line once
+  `talk --outline` finishes, and the cursor parks blinking under it. Up/Down boxes the current
+  entry. Relies on slidedown's `tw-done` class (set when a typewriter finishes).
+* No blank lines inside slide bodies -- slidedown turns them into `<br>`.
+* Deck order: title, whoami, whatido, hub (`.id{outline}`), then the spokes, two slides each
+  (conclusions one). `transition: zoom` is on: the chosen hub entry flies up to become the
+  spoke's heading, so each spoke's first `.h1` must match its menu text.
+* Spoke content is a *draft*. 1, 2, 5 (part), 6 are adapted from the Red Hat deck; 3, 4, 7 are
+  placeholders written without Rudolph's input -- expect them to be replaced.
+
+== Open questions
+
+* Section 3, 4, 7 content -- Rudolph has ideas; drafts are stand-ins.
+* "The hard part was never the model" is both the whatido closer and spoke 5's line. Keep one,
+  or make whatido foreshadow it deliberately.
+* Do 1 and 2 merge?

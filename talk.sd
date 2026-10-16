@@ -1,6 +1,7 @@
 .meta{
   title: "Computing Infrastructure for Clinical AI"
   theme: "terminal"
+  transition: zoom
   typography:
     baseline: presentation
   snippets:
@@ -53,6 +54,39 @@
         --term-label: "'rudolph@artemis: ~ whatido'"
     "#slide-1 h1":
         font-size: "2.2em"
+    "#slide-4":
+        --term-label: "'rudolph@artemis: ~ outline'"
+    "#slide-5":
+        --term-label: "'rudolph@artemis: ~ 01 state'"
+    "#slide-6":
+        --term-label: "'rudolph@artemis: ~ 01 state'"
+    "#slide-7":
+        --term-label: "'rudolph@artemis: ~ 02 what is ai'"
+    "#slide-8":
+        --term-label: "'rudolph@artemis: ~ 02 what is ai'"
+    "#slide-9":
+        --term-label: "'rudolph@artemis: ~ 03 compute'"
+    "#slide-10":
+        --term-label: "'rudolph@artemis: ~ 03 compute'"
+    "#slide-11":
+        --term-label: "'rudolph@artemis: ~ 04 governance'"
+    "#slide-12":
+        --term-label: "'rudolph@artemis: ~ 04 governance'"
+    "#slide-13":
+        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+    "#slide-14":
+        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+    "#slide-15":
+        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+    "#slide-16":
+        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+    "#slide-17":
+        --term-label: "'rudolph@artemis: ~ 07 conclusions'"
+    ".term .sd-nexus":
+        margin-top: "0.6em"
+    ".term .sd-nexus > div":
+        margin-bottom: "0.45rem"
+        padding-left: "1.2em"
     ".container > br":
         display: "none"
     ".term":
@@ -102,10 +136,52 @@
     ".num":
         color: "#dcdcaa"
         font-weight: "bold"
-    "#typewriter-1-1::after, #typewriter-2-1::after, #typewriter-3-1::after":
+    ".term > pre::after":
         content: "'▊'"
         color: "#4ec9b0"
         animation: "blink 500ms linear infinite alternate"
+    ".term:has(> .snippet:not(.sl-hidden)) > pre::after, .term:has(> .sd-nexus) > pre.tw-done::after":
+        content: "none"
+        animation: "none"
+    ".term > .snippet:not(.sl-hidden):not(:has(~ .snippet:not(.sl-hidden)))::after":
+        content: "'▊'"
+        color: "#4ec9b0"
+        animation: "blink 500ms linear infinite alternate"
+        margin-left: "0.15em"
+    ".term > pre:not(.tw-done) ~ .sd-nexus > div, .term > pre:not(.tw-done) ~ .sd-nexus::after":
+        visibility: "hidden"
+    ".term > .sd-nexus::after":
+        content: "'▊'"
+        color: "#4ec9b0"
+        animation: "blink 500ms linear infinite alternate"
+        display: "block"
+        padding-left: "1.2em"
+    ".term > pre.tw-done ~ .sd-nexus::after":
+        transition: "visibility 0s linear 0.6s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(1)":
+        transition: "visibility 0s linear 0.00s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(2)":
+        transition: "visibility 0s linear 0.07s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(3)":
+        transition: "visibility 0s linear 0.14s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(4)":
+        transition: "visibility 0s linear 0.21s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(5)":
+        transition: "visibility 0s linear 0.28s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(6)":
+        transition: "visibility 0s linear 0.35s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(7)":
+        transition: "visibility 0s linear 0.42s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(8)":
+        transition: "visibility 0s linear 0.49s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(9)":
+        transition: "visibility 0s linear 0.56s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(10)":
+        transition: "visibility 0s linear 0.63s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(11)":
+        transition: "visibility 0s linear 0.70s"
+    ".term > pre.tw-done ~ .sd-nexus > div:nth-child(12)":
+        transition: "visibility 0s linear 0.77s"
     ".cursor":
         display: "inline-block"
         color: "#4ec9b0"
@@ -157,5 +233,218 @@
     }
 
     .div{.class{prompt} THE HARD PART WAS NEVER THE MODEL. IT IS EVERYTHING AROUND IT.}
+  }
+}
+
+.slide{
+  .id{outline}
+  .title{Outline}
+  .body{
+    .h1{Outline}
+    .div{.class{term}
+.typewriter{$> talk --outline}
+    .nexus{.id{outline}
+      .div{.jump{.target{state} Current State of "AI" in Hospitals}}
+      .div{.jump{.target{what-is-ai} What Exactly Is "AI"?}}
+      .div{.jump{.target{compute} What Is Computing in a Hospital?}}
+      .div{.jump{.target{governance} Governance}}
+      .div{.jump{.target{infrastructure} It's All About the Infrastructure}}
+      .div{.jump{.target{what-next} What Can Be Done?}}
+      .div{.jump{.target{conclusions} Conclusions}}
+    }
+    }
+  }
+}
+
+.slide{
+  .id{state}
+  .title{Current State of AI in Hospitals}
+  .body{
+    .h1{Current State of "AI" in Hospitals}
+    .div{.class{term}
+.typewriter{$> ai_status --where=hospital}
+      .o{Cleared, deployed clinical AI is overwhelmingly .bf{predictive} -- and overwhelmingly .bf{imaging}.}
+      .o{Detection, segmentation, triage, quantification. Bounded outputs, bounded claims.}
+      .o{The generative wave landed elsewhere: documentation, coding, search, routing.}
+      .o{Ambient scribes. Inbox drafts. Prior-auth letters.}
+      .o{Common thread: .bf{a human reads the output before anything happens.}}
+    }
+    .div{.class{prompt} THE REAL QUESTION: WHAT IS AI ALLOWED TO DO UNSUPERVISED?}
+  }
+}
+
+.slide{
+  .title{Headlines vs the Hospital}
+  .body{
+    .h1{Headlines vs the Hospital}
+    .div{.class{term}
+.typewriter{$> diff headlines.txt hospital.txt}
+      .o{Headline: models pass board exams, read scans, talk to patients.}
+      .o{Hospital: one validated model, one scanner vendor, one site.}
+      .o{The gap is not .bf{capability.} It is .bf{deployment.}}
+    }
+  }
+}
+
+.slide{
+  .id{what-is-ai}
+  .title{What Exactly Is AI?}
+  .body{
+    .h1{What Exactly Is "AI"?}
+    .div{.class{term}
+.typewriter{$> whatis ai --honest}
+      .o{"AI" in a hospital means at least two different machines.}
+      .o{.bf{Predictive:} rich input to a bounded output. Chest film to a label. MRI to a segmentation.}
+      .o{.bf{Generative:} partial input to a sampled output. Many answers fit; it must pick one.}
+      .o{The probabilism is not a bug awaiting a patch. .bf{It is the task.}}
+    }
+    .div{.class{prompt} PREDICTIVE EMBEDS IN A PIPELINE. GENERATIVE NEEDS A READER.}
+  }
+}
+
+.slide{
+  .title{The Danger of Depth}
+  .body{
+    .h1{The Danger of Depth}
+    .div{.class{term}
+.typewriter{$> agent --steps=n --unsupervised}
+      .o{Fine when a human reads it. Not fine when it .bf{executes.}}
+      .o{An agent is a model whose output becomes a decision.}
+      .o{Any error rate, compounded down the chain.}
+      .o{More steps do not repair that. They expose it.}
+    }
+    .div{.class{prompt} AUTONOMY AT THE EDGE. DETERMINISM AT THE CORE.}
+  }
+}
+
+.slide{
+  .id{compute}
+  .title{What Is Computing in a Hospital?}
+  .body{
+    .h1{What Is Computing in a Hospital?}
+    .div{.class{term}
+.typewriter{$> compute --inside=hospital}
+      .o{Built to .bf{run the hospital}, not to do research: EHR, PACS, billing, scheduling.}
+      .o{Clinical systems are vendor-owned, validated, change-averse -- .bf{by design.}}
+      .o{Research compute lives somewhere else: a cluster, a cloud, a collaborator.}
+      .o{The data lives in the first world. The GPUs live in the second.}
+    }
+  }
+}
+
+.slide{
+  .title{Two Worlds}
+  .body{
+    .h1{Two Worlds}
+    .div{.class{term}
+.typewriter{$> scp pacs:/studies/* gpu-cluster:/data
+> permission denied (policy)}
+      .o{Every model that works in a paper must cross this boundary to reach a patient.}
+      .o{Most stall here.}
+    }
+    .div{.class{prompt} THE BOUNDARY IS THE BOTTLENECK.}
+  }
+}
+
+.slide{
+  .id{governance}
+  .title{Governance}
+  .body{
+    .h1{Governance}
+    .div{.class{term}
+.typewriter{$> governance --apply --to=practice}
+      .o{The intent is right: protect patients, protect data, know what ran on whom.}
+      .o{IRBs, data-use agreements, privacy offices, security review, model validation.}
+      .o{Each check is reasonable. .bf{In series, they are months.}}
+      .o{And each is written for .bf{moving data} -- not for moving computation.}
+    }
+    .div{.class{prompt} A GOOD IDEA WITH A CHALLENGING APPLICATION.}
+  }
+}
+
+.slide{
+  .title{Ask a Different Question}
+  .body{
+    .h1{Ask a Different Question}
+    .div{.class{term}
+.typewriter{$> review --question}
+      .o{Today: .bf{where does the data go?}}
+      .o{Instead: .bf{what runs, where, and what comes back?}}
+      .o{That question can be answered by software -- and audited.}
+    }
+  }
+}
+
+.slide{
+  .id{infrastructure}
+  .title{It's All About the Infrastructure}
+  .body{
+    .h1{It's All About the Infrastructure}
+    .div{.class{term}
+.typewriter{$> grep -r infrastructure ./clinical-ai}
+      .o{The model is the easy part. Published, downloadable, often open.}
+      .o{The hard part is everything around it: access, compute, provenance, validation, audit.}
+      .o{None of that is a research problem. .bf{All of it is infrastructure.}}
+    }
+    .div{.class{prompt} THE HARD PART WAS NEVER THE MODEL.}
+  }
+}
+
+.slide{
+  .title{This Room Already Knows}
+  .body{
+    .h1{This Room Already Knows}
+    .div{.class{term}
+.typewriter{$> cat nsdf/themes.txt}
+      .o{Federated data access. Provenance. Workflow portability. Governance.}
+      .o{Medicine needs exactly these -- under stricter rules.}
+      .o{One difference: .bf{the data cannot move.}}
+    }
+  }
+}
+
+.slide{
+  .id{what-next}
+  .title{What Can Be Done?}
+  .body{
+    .h1{What Can Be Done?}
+    .div{.class{term}
+.typewriter{$> plan --next}
+      .o{Do not move the data. .bf{Move the computation.}}
+      .o{.bf{HARBOR} -- a registry of .bf{processable} data. Find the cohort, send the compute to it.}
+      .o{The provider's hardware, governance, audit trail. .bf{They keep control.}}
+      .o{Only results come back. No images. .bf{No PHI.}}
+    }
+    .div{.class{prompt} DO NOT MOVE THE DATA. MOVE THE QUESTION.}
+  }
+}
+
+.slide{
+  .title{Why It Matters}
+  .body{
+    .h1{Why It Matters}
+    .div{.class{term}
+.typewriter{$> harbor --why}
+      .o{Population-scale science without a population-scale honeypot.}
+      .o{Sites that could never share data can finally contribute.}
+      .o{A small hospital joins with a key, not a data centre.}
+    }
+    .div{.class{prompt} THE BLOCKER WAS NEVER COMPUTE. IT WAS PERMISSION TO MOVE DATA.}
+  }
+}
+
+.slide{
+  .id{conclusions}
+  .title{Conclusions}
+  .body{
+    .h1{Conclusions}
+    .div{.class{term}
+.typewriter{$> exit
+> questions? I have opinions.}
+      .o{Clinical AI that works today is narrow, predictive, and human-read.}
+      .o{Hospitals are built to run care, not computation.}
+      .o{Governance is right in intent and slow in practice.}
+      .o{The fix is infrastructure: .bf{compute goes to the data.}}
+    }
   }
 }

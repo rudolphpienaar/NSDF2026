@@ -24,8 +24,12 @@ cd talk && python3 -m http.server 8000
 | 1 | Boot — title, venue |
 | 2 | Whoami — roles, then credentials. 7 reveals |
 | 3 | Whatido — ChRIS, HARBOR, the hospital/cloud boundary |
+| 4 | Outline — the nexus hub. Press 1–7, arrows + Enter, or click |
+| 5–11 | One spoke per section (stubs) |
 
-Linear argument to follow — no audience vote; ten minutes doesn't allow it.
+Advancing off the end of a section returns to the hub; Esc returns from
+anywhere. Visited sections dim on the hub (per browser tab — a fresh tab
+starts clean).
 
 ## Opening
 
