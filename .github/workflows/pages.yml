@@ -1,0 +1,58 @@
+name: Deploy slides to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deck
+        uses: actions/checkout@v4
+
+      # Pinned to the FNNDSC/slidedown#1 merge: deck CSS beats theme, console
+      # highlighting, tw-done, nexus polish. Bump deliberately, not by accident.
+      - name: Checkout slidedown
+        uses: actions/checkout@v4
+        with:
+          repository: FNNDSC/slidedown
+          ref: 05ec3687a3413ec65ae3564be35c8214c6d00435
+          path: .slidedown
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install slidedown
+        run: pip install -e .slidedown
+
+      - name: Build deck
+        run: slidedown . talk --inputFile talk.sd --theme terminal
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: talk
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -56,31 +56,60 @@
         font-size: "2.2em"
     "#slide-4":
         --term-label: "'rudolph@artemis: ~ outline'"
+    ".lbl":
+        display: "inline-block"
+        width: "20ch"
+        text-indent: "0"
+    ".bar":
+        color: "#4ec9b0"
+    ".pct":
+        color: "#dcdcaa"
+        font-weight: "bold"
+        margin-left: "0.6ch"
+    ".term .snippet:has(.lbl)::before, .term .snippet:has(> .dim:only-child)::before":
+        content: "''"
+    ".src":
+        font-size: "0.5em"
+        color: "#6a9955"
+        margin-top: "0.6em"
+        letter-spacing: "0.5px"
     "#slide-5":
         --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-6":
         --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-7":
-        --term-label: "'rudolph@artemis: ~ 02 what is ai'"
+        --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-8":
         --term-label: "'rudolph@artemis: ~ 02 what is ai'"
     "#slide-9":
-        --term-label: "'rudolph@artemis: ~ 03 compute'"
+        --term-label: "'rudolph@artemis: ~ 02 what is ai'"
     "#slide-10":
-        --term-label: "'rudolph@artemis: ~ 03 compute'"
+        --term-label: "'rudolph@artemis: ~ 02 what is ai'"
     "#slide-11":
-        --term-label: "'rudolph@artemis: ~ 04 governance'"
+        --term-label: "'rudolph@artemis: ~ 03 compute'"
     "#slide-12":
-        --term-label: "'rudolph@artemis: ~ 04 governance'"
+        --term-label: "'rudolph@artemis: ~ 03 compute'"
     "#slide-13":
-        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+        --term-label: "'rudolph@artemis: ~ 03 compute'"
     "#slide-14":
-        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+        --term-label: "'rudolph@artemis: ~ 04 governance'"
     "#slide-15":
-        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+        --term-label: "'rudolph@artemis: ~ 04 governance'"
     "#slide-16":
-        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+        --term-label: "'rudolph@artemis: ~ 04 governance'"
     "#slide-17":
+        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+    "#slide-18":
+        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+    "#slide-19":
+        --term-label: "'rudolph@artemis: ~ 05 infrastructure'"
+    "#slide-20":
+        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+    "#slide-21":
+        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+    "#slide-22":
+        --term-label: "'rudolph@artemis: ~ 06 what can be done'"
+    "#slide-23":
         --term-label: "'rudolph@artemis: ~ 07 conclusions'"
     ".term .sd-nexus":
         margin-top: "0.6em"
@@ -126,9 +155,16 @@
         margin-bottom: "0.5em"
     ".term .snippet":
         margin-bottom: "0.35rem"
-        padding-left: "1.2em"
+        padding-left: "2.8em"
+        text-indent: "-1.6em"
+    ".term .snippet::before":
+        display: "inline-block"
+        width: "1.6em"
+        margin-right: "0"
+        text-indent: "0"
     ".term .snippet:has(pre)":
         padding-left: "0"
+        text-indent: "0"
         margin-top: "1em"
         margin-bottom: "0.5em"
     ".term .snippet:has(pre)::before":
@@ -262,27 +298,46 @@
   .body{
     .h1{Current State of "AI" in Hospitals}
     .div{.class{term}
-.typewriter{$> ai_status --where=hospital}
-      .o{Cleared, deployed clinical AI is overwhelmingly .bf{predictive} -- and overwhelmingly .bf{imaging}.}
-      .o{Detection, segmentation, triage, quantification. Bounded outputs, bounded claims.}
-      .o{The generative wave landed elsewhere: documentation, coding, search, routing.}
-      .o{Ambient scribes. Inbox drafts. Prior-auth letters.}
-      .o{Common thread: .bf{a human reads the output before anything happens.}}
+.typewriter{$> ai_status --site=bch}
+      .o{Honestly? Not much -- not in the Northeast, not at Boston Children's.}
+      .o{I deployed the only semi-production AI workflows in clinical radiology at BCH.}
+      .o{They are .bf{predictive}: images in, labels and segmentations out.}
+      .o{Generative AI is in use -- on .bf{text}: notes, documentation, productivity.}
+      .o{Where it touches diagnosis it is .bf{advisory}: a human reads every output.}
     }
-    .div{.class{prompt} THE REAL QUESTION: WHAT IS AI ALLOWED TO DO UNSUPERVISED?}
+    .div{.class{src} Generative AI at BCH: Becker's Hospital Review 2024 · OpenAI customer story, May 2026 (vendor-published)}
   }
 }
 
 .slide{
-  .title{Headlines vs the Hospital}
+  .id{state-2}
+  .title{What the Numbers Say}
   .body{
-    .h1{Headlines vs the Hospital}
+    .h1{What the Numbers Say}
     .div{.class{term}
-.typewriter{$> diff headlines.txt hospital.txt}
-      .o{Headline: models pass board exams, read scans, talk to patients.}
-      .o{Hospital: one validated model, one scanner vendor, one site.}
-      .o{The gap is not .bf{capability.} It is .bf{deployment.}}
+.typewriter{$> survey --hospitals=us --year=2024}
+      .o{.span{.class{lbl} predictive in EHR}.span{.class{bar} ██████████████}.span{.class{pct} 71%}}
+      .o{.span{.class{lbl} generative in EHR}.span{.class{bar} ██████}.span{.class{pct} 31.5%}}
+      .o{.span{.class{lbl} FDA AI = radiology}.span{.class{bar} ███████████████}.span{.class{pct} 76%}}
+      .o{LLMs vs physicians, 2,400 real cases: .bf{worse}, and ignored guidelines.}
+      .o{Physicians given GPT-4 (RCT): .bf{no better} than without.}
     }
+    .div{.class{src} ASTP Data Brief 80 (2025) · Everson et al., JAMA Netw Open 2025 · FDA AI-enabled device list (trade-press count) · Hager et al., Nat Med 2024 · Goh et al., JAMA Netw Open 2024}
+  }
+}
+
+.slide{
+  .id{state-end}
+  .title{Current State of AI in Hospitals}
+  .body{
+    .h1{Current State of "AI" in Hospitals}
+    .div{.class{term}
+.typewriter{$> summary}
+      .o{Deployed clinical AI: .bf{predictive}, mostly imaging, mostly vendor-embedded.}
+      .o{Generative AI: text work, with a human in the loop.}
+    }
+    .div{.class{prompt} "AI IN HOSPITALS" IS MUCH SMALLER THAN THE HEADLINES.}
+    .div{.class{src} ASTP Data Brief 80 (2025) · Nong et al., Health Aff 2025 · FDA AI-enabled device list · Poon et al., JAMIA 2025}
   }
 }
 
@@ -293,27 +348,45 @@
     .h1{What Exactly Is "AI"?}
     .div{.class{term}
 .typewriter{$> whatis ai --honest}
-      .o{"AI" in a hospital means at least two different machines.}
-      .o{.bf{Predictive:} rich input to a bounded output. Chest film to a label. MRI to a segmentation.}
-      .o{.bf{Generative:} partial input to a sampled output. Many answers fit; it must pick one.}
-      .o{The probabilism is not a bug awaiting a patch. .bf{It is the task.}}
+      .o{Today, "AI" means .bf{LLMs}.}
+      .o{But the AI delivering clinical value is .bf{pattern matching}: tumour detection, tissue labelling, segmentation.}
+      .o{.bf{Predictive:} a deterministic forward pass. Rich input, bounded output.}
+      .o{.bf{Generative:} samples one plausible answer from many. The probabilism is the task.}
     }
-    .div{.class{prompt} PREDICTIVE EMBEDS IN A PIPELINE. GENERATIVE NEEDS A READER.}
   }
 }
 
 .slide{
-  .title{The Danger of Depth}
+  .id{what-is-ai-2}
+  .title{Can LLMs Read Images?}
   .body{
-    .h1{The Danger of Depth}
+    .h1{Can LLMs Read Images?}
     .div{.class{term}
-.typewriter{$> agent --steps=n --unsupervised}
-      .o{Fine when a human reads it. Not fine when it .bf{executes.}}
-      .o{An agent is a model whose output becomes a decision.}
-      .o{Any error rate, compounded down the chain.}
-      .o{More steps do not repair that. They expose it.}
+.typewriter{$> benchmark --task=radiology}
+      .o{.span{.class{dim} GPT-4V, radiology board questions}}
+      .o{.span{.class{lbl} text questions}.span{.class{bar} ████████████████}.span{.class{pct} 81.5%}}
+      .o{.span{.class{lbl} image questions}.span{.class{bar} █████████▌}.span{.class{pct} 47.8%}}
+      .o{.span{.class{dim} RadLE: 50 expert image cases}}
+      .o{.span{.class{lbl} radiologists}.span{.class{bar} ████████████████▌}.span{.class{pct} 83%}}
+      .o{.span{.class{lbl} GPT-5}.span{.class{bar} ██████}.span{.class{pct} 30%}}
+      .o{Diffusion models .bf{make and clean} images -- synthesis, denoising, reconstruction. They don't read them.}
     }
-    .div{.class{prompt} AUTONOMY AT THE EDGE. DETERMINISM AT THE CORE.}
+    .div{.class{src} Hayden et al., Radiology 2024 · Datta et al., arXiv 2509.25559 (preprint) · Kazerouni et al., Med Image Anal 2023}
+  }
+}
+
+.slide{
+  .id{what-is-ai-end}
+  .title{What Exactly Is AI?}
+  .body{
+    .h1{What Exactly Is "AI"?}
+    .div{.class{term}
+.typewriter{$> diff predictive generative}
+      .o{Same word, two machines -- they warrant .bf{different trust}.}
+      .o{This session's example of the first kind: small-cohort multiomics predictors (Alter).}
+      .o{On "trustworthy autonomy": in the clinic the trust problem is not autonomy -- it is .bf{telling the two apart.}}
+    }
+    .div{.class{prompt} CALL IT ALL "AI" AND YOU GOVERN IT ALL LIKE A CHATBOT.}
   }
 }
 
@@ -324,25 +397,45 @@
     .h1{What Is Computing in a Hospital?}
     .div{.class{term}
 .typewriter{$> compute --inside=hospital}
-      .o{Built to .bf{run the hospital}, not to do research: EHR, PACS, billing, scheduling.}
-      .o{Clinical systems are vendor-owned, validated, change-averse -- .bf{by design.}}
-      .o{Research compute lives somewhere else: a cluster, a cloud, a collaborator.}
-      .o{The data lives in the first world. The GPUs live in the second.}
+      .o{For clinicians, until recently: Outlook and scheduling.}
+      .o{Behind that: enterprise databases for billing.}
+      .o{Computing as in .bf{actual computing}? Barely existed. Still barely does.}
+      .o{Forget AI -- most hospitals can't do .bf{any} advanced computing.}
     }
   }
 }
 
 .slide{
-  .title{Two Worlds}
+  .id{compute-2}
+  .title{Resources, Not Regions}
   .body{
-    .h1{Two Worlds}
+    .h1{Resources, Not Regions}
     .div{.class{term}
-.typewriter{$> scp pacs:/studies/* gpu-cluster:/data
-> permission denied (policy)}
-      .o{Every model that works in a paper must cross this boundary to reach a patient.}
-      .o{Most stall here.}
+.typewriter{$> stats --predictive-ai --by=hospital}
+      .o{.span{.class{lbl} system-affiliated}.span{.class{bar} █████████████████}.span{.class{pct} 86%}}
+      .o{.span{.class{lbl} independent}.span{.class{bar} ███████}.span{.class{pct} 37%}}
+      .o{.span{.class{lbl} urban}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
+      .o{.span{.class{lbl} rural}.span{.class{bar} ███████████}.span{.class{pct} 56%}}
+      .o{.span{.class{lbl} critical access}.span{.class{bar} ██████████}.span{.class{pct} 50%}}
+      .o{IT is ~2.3% of hospital operating expense; 65% of systems spend under the 5%-of-revenue benchmark.}
     }
-    .div{.class{prompt} THE BOUNDARY IS THE BOTTLENECK.}
+    .div{.class{src} ASTP Data Brief 80 (2025) · Definitive Healthcare (Medicare cost reports, 2024) · WittKieffer CIO survey via Becker's}
+  }
+}
+
+.slide{
+  .id{compute-end}
+  .title{What Is Computing in a Hospital?}
+  .body{
+    .h1{What Is Computing in a Hospital?}
+    .div{.class{term}
+.typewriter{$> cloud --status
+> 80%+ use a public cloud. Few have left on-prem.}
+      .o{"Move to the cloud" mostly means a hosted EHR and some workloads -- .bf{not research computing.}}
+      .o{43% of healthcare IT leaders name the .bf{skills gap} as the main cloud barrier.}
+    }
+    .div{.class{prompt} THE GAP FOLLOWS MONEY AND SIZE.}
+    .div{.class{src} KLAS via Becker's, Jul 2025 (n=36) · Rackspace State of Cloud 2025 (vendor, n=150)}
   }
 }
 
@@ -353,25 +446,41 @@
     .h1{Governance}
     .div{.class{term}
 .typewriter{$> governance --apply --to=practice}
-      .o{The intent is right: protect patients, protect data, know what ran on whom.}
-      .o{IRBs, data-use agreements, privacy offices, security review, model validation.}
-      .o{Each check is reasonable. .bf{In series, they are months.}}
-      .o{And each is written for .bf{moving data} -- not for moving computation.}
+      .o{Well-meaning people who can't define AI, writing policy to govern it.}
+      .o{Every policy assumes "AI" means .bf{generative AI}.}
+      .o{So it stalls on anything else.}
     }
-    .div{.class{prompt} A GOOD IDEA WITH A CHALLENGING APPLICATION.}
   }
 }
 
 .slide{
-  .title{Ask a Different Question}
+  .id{governance-2}
+  .title{The 100 MB Model}
   .body{
-    .h1{Ask a Different Question}
+    .h1{The 100 MB Model}
     .div{.class{term}
-.typewriter{$> review --question}
-      .o{Today: .bf{where does the data go?}}
-      .o{Instead: .bf{what runs, where, and what comes back?}}
-      .o{That question can be answered by software -- and audited.}
+.typewriter{$> review tissue-seg.pt}
+      .o{.span{.class{dim} 100 MB · images in · images out · runs on a tablet}}
+      .o{Q: hallucination guardrails? -- It does not sample. .bf{Deterministic forward pass.}}
+      .o{Q: PHI leaking to big model companies? -- .bf{There is no text. Nothing leaves.}}
+      .o{The process stalls anyway.}
     }
+  }
+}
+
+.slide{
+  .id{governance-end}
+  .title{Governance}
+  .body{
+    .h1{Governance}
+    .div{.class{term}
+.typewriter{$> stats --governance}
+      .o{Only .bf{16%} of health systems had a system-wide AI governance policy (2024).}
+      .o{AI submissions outpace committee decisions .bf{~3:2} -- a growing backlog.}
+      .o{Hospitals that evaluate predictive AI least adopt generative AI .bf{earliest}.}
+    }
+    .div{.class{prompt} SCRUTINY IS HEAVIEST ON THE SAFEST MODELS.}
+    .div{.class{src} UPMC/KLAS survey, Feb 2024 · Elion, The AI Governance Playbook, Nov 2025 (vendor) · Everson et al., JAMA Netw Open 2025}
   }
 }
 
@@ -382,15 +491,16 @@
     .h1{It's All About the Infrastructure}
     .div{.class{term}
 .typewriter{$> grep -r infrastructure ./clinical-ai}
-      .o{The model is the easy part. Published, downloadable, often open.}
-      .o{The hard part is everything around it: access, compute, provenance, validation, audit.}
-      .o{None of that is a research problem. .bf{All of it is infrastructure.}}
+      .o{The .bf{first real need.}}
+      .o{Places that didn't know computers could compute now need sophisticated computing.}
+      .o{Cloud. Schedulers. Containers. Orchestration.}
+      .o{Alien to IT departments built to install locked-down Windows desktops.}
     }
-    .div{.class{prompt} THE HARD PART WAS NEVER THE MODEL.}
   }
 }
 
 .slide{
+  .id{infrastructure-2}
   .title{This Room Already Knows}
   .body{
     .h1{This Room Already Knows}
@@ -404,32 +514,62 @@
 }
 
 .slide{
+  .id{infrastructure-end}
+  .title{It's All About the Infrastructure}
+  .body{
+    .h1{It's All About the Infrastructure}
+    .div{.class{term}
+.typewriter{$> echo $BOTTLENECK
+> infrastructure}
+      .o{The value is in small predictive models. Hospitals can't .bf{run} them, and can't .bf{approve} them.}
+      .o{Infrastructure is the common fix.}
+    }
+    .div{.class{prompt} THE HARD PART WAS NEVER THE MODEL.}
+  }
+}
+
+.slide{
   .id{what-next}
   .title{What Can Be Done?}
   .body{
     .h1{What Can Be Done?}
     .div{.class{term}
 .typewriter{$> plan --next}
+      .o{.bf{Triage governance by what a model is:} images or text? local or remote? deterministic or sampled?}
+      .o{A fast lane for small, local, image-in/image-out models.}
+      .o{.bf{Shared infrastructure}, not a data centre per hospital: validated containers run next to the data (ChRIS).}
+    }
+  }
+}
+
+.slide{
+  .id{what-next-2}
+  .title{Move the Computation}
+  .body{
+    .h1{Move the Computation}
+    .div{.class{term}
+.typewriter{$> harbor --why}
       .o{Do not move the data. .bf{Move the computation.}}
-      .o{.bf{HARBOR} -- a registry of .bf{processable} data. Find the cohort, send the compute to it.}
-      .o{The provider's hardware, governance, audit trail. .bf{They keep control.}}
-      .o{Only results come back. No images. .bf{No PHI.}}
+      .o{Find the cohort, send the compute to it. Only results come back -- no images, no PHI.}
+      .o{A small hospital joins with a key, not a data centre.}
+      .o{The precondition for federation: federated learning (Xu) needs sites that .bf{can compute}.}
     }
     .div{.class{prompt} DO NOT MOVE THE DATA. MOVE THE QUESTION.}
   }
 }
 
 .slide{
-  .title{Why It Matters}
+  .id{what-next-end}
+  .title{What Can Be Done?}
   .body{
-    .h1{Why It Matters}
+    .h1{What Can Be Done?}
     .div{.class{term}
-.typewriter{$> harbor --why}
-      .o{Population-scale science without a population-scale honeypot.}
-      .o{Sites that could never share data can finally contribute.}
-      .o{A small hospital joins with a key, not a data centre.}
+.typewriter{$> ask --audience=nsdf}
+      .o{Treat hospitals as .bf{first-class sites} in national data fabrics.}
+      .o{Networks to hospitals (Hart). Nodes that host clinical compute (Kirby). Shared standards (Musen).}
+      .o{The hospital side brings the data and the questions.}
     }
-    .div{.class{prompt} THE BLOCKER WAS NEVER COMPUTE. IT WAS PERMISSION TO MOVE DATA.}
+    .div{.class{prompt} THE HOSPITALS LEAST ABLE TO COMPUTE NEED THIS MOST.}
   }
 }
 
@@ -441,10 +581,10 @@
     .div{.class{term}
 .typewriter{$> exit
 > questions? I have opinions.}
-      .o{Clinical AI that works today is narrow, predictive, and human-read.}
-      .o{Hospitals are built to run care, not computation.}
-      .o{Governance is right in intent and slow in practice.}
-      .o{The fix is infrastructure: .bf{compute goes to the data.}}
+      .o{The AI that works in hospitals is .bf{small, predictive, and local}.}
+      .o{Hospitals were built to run care, not computation.}
+      .o{Governance written for LLMs blocks the models that already work.}
+      .o{The fix: shared infrastructure, compute to the data -- and governance that can tell a segmentation model from a chatbot.}
     }
   }
 }

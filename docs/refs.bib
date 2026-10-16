@@ -1,0 +1,193 @@
+% References for the NSDF 2026 talk. Journal entries verified against PubMed
+% (NCBI E-utilities) on 2026-10-16; others carry a note on provenance.
+
+% --- Hospital AI adoption ---------------------------------------------------
+
+@article{nong2025,
+  author  = {Nong, Paige and Adler-Milstein, Julia and Apathy, Nate C. and Holmgren, A. Jay and Everson, Jordan},
+  title   = {Current Use And Evaluation Of Artificial Intelligence And Predictive Models In {US} Hospitals},
+  journal = {Health Affairs},
+  year    = {2025},
+  volume  = {44},
+  number  = {1},
+  pages   = {90--98},
+  doi     = {10.1377/hlthaff.2024.00842},
+  note    = {PMID 39761454. 2023 AHA IT Supplement, 2,425 hospitals: 65\% use EHR-integrated predictive models; 61\% evaluate locally for accuracy, 44\% for bias}
+}
+
+@techreport{astp2025,
+  author      = {{Office of the Assistant Secretary for Technology Policy}},
+  title       = {Hospital Trends in the Use, Evaluation, and Governance of Predictive {AI}, 2023--2024},
+  institution = {U.S. Department of Health and Human Services, ASTP/ONC},
+  type        = {Data Brief},
+  number      = {80},
+  year        = {2025},
+  month       = sep,
+  url         = {https://www.healthit.gov/data/data-briefs/hospital-trends-use-evaluation-and-governance-predictive-ai-2023-2024},
+  note        = {71\% of hospitals use predictive AI (2024); system-affiliated 86\% vs independent 37\%; urban 81\% vs rural 56\%; critical access 50\%. Figures as reported in AHA/press summaries; check the brief before quoting on a slide}
+}
+
+@article{everson2025,
+  author  = {Everson, Jordan and Nong, Paige and Richwine, Chelsea},
+  title   = {Uptake of Generative {AI} Integrated With Electronic Health Records in {US} Hospitals},
+  journal = {JAMA Network Open},
+  year    = {2025},
+  volume  = {8},
+  number  = {12},
+  pages   = {e2549463},
+  doi     = {10.1001/jamanetworkopen.2025.49463},
+  note    = {PMID 41385223. 2024 AHA IT Supplement, 2,174 hospitals: 31.5\% use EHR-integrated generative AI, 24.7\% plan to within a year; major teaching 54\% vs nonteaching 26\%}
+}
+
+@article{poon2025,
+  author  = {Poon, Eric G. and Lemak, Christy Harris and Rojas, Juan C. and Guptill, Janet and Classen, David},
+  title   = {Adoption of artificial intelligence in healthcare: survey of health system priorities, successes, and challenges},
+  journal = {Journal of the American Medical Informatics Association},
+  year    = {2025},
+  volume  = {32},
+  number  = {7},
+  pages   = {1093--1100},
+  doi     = {10.1093/jamia/ocaf065},
+  note    = {PMID 40323320. 43 health systems, fall 2024: ambient notes the only use case with 100\% adoption activity (53\% high success); imaging 90\% at least partially deployed}
+}
+
+% --- Can generative models do clinical work? ---------------------------------
+
+@article{hager2024,
+  author  = {Hager, Paul and Jungmann, Friederike and Holland, Robbie and Bhagat, Kunal and Hubrecht, Inga and Knauer, Manuel and Vielhauer, Jakob and Makowski, Marcus and Braren, Rickmer and Kaissis, Georgios and Rueckert, Daniel},
+  title   = {Evaluation and mitigation of the limitations of large language models in clinical decision-making},
+  journal = {Nature Medicine},
+  year    = {2024},
+  volume  = {30},
+  number  = {9},
+  pages   = {2613--2622},
+  doi     = {10.1038/s41591-024-03097-1},
+  note    = {PMID 38965432. 2,400 real abdominal cases: LLMs worse than physicians, did not follow guidelines; "not ready for autonomous clinical decision-making"}
+}
+
+@article{goh2024,
+  author  = {Goh, Ethan and Gallo, Robert and Hom, Jason and Strong, Eric and Weng, Yingjie and Kerman, Hannah and Cool, Jos{\'e}phine A. and Kanjee, Zahir and Parsons, Andrew S. and Ahuja, Neera and Horvitz, Eric and Yang, Daniel and Milstein, Arnold and Olson, Andrew P. J. and Rodman, Adam and Chen, Jonathan H.},
+  title   = {Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial},
+  journal = {JAMA Network Open},
+  year    = {2024},
+  volume  = {7},
+  number  = {10},
+  pages   = {e2440969},
+  doi     = {10.1001/jamanetworkopen.2024.40969},
+  note    = {PMID 39466245. Physicians with GPT-4 access did no better than without}
+}
+
+% --- Generative models and images ------------------------------------------
+
+@article{hayden2024,
+  author  = {Hayden, Nolan and Gilbert, Spencer and Poisson, Laila M. and Griffith, Brent and Klochko, Chad},
+  title   = {Performance of {GPT-4} with Vision on Text- and Image-based {ACR} Diagnostic Radiology In-Training Examination Questions},
+  journal = {Radiology},
+  year    = {2024},
+  volume  = {312},
+  number  = {3},
+  pages   = {e240153},
+  doi     = {10.1148/radiol.240153},
+  note    = {PMID 39225605. 81.5\% on text-only questions vs 47.8\% on image-based; hallucinated image findings}
+}
+
+@misc{datta2025radle,
+  author        = {Datta, Suvrankar and Buchireddygari, Divya and Kaza, Lakshmi Vennela Chowdary and others},
+  title         = {Radiology's Last Exam ({RadLE}): Benchmarking Frontier Multimodal {AI} Against Human Experts and a Taxonomy of Visual Reasoning Errors in Radiology},
+  year          = {2025},
+  eprint        = {2509.25559},
+  archivePrefix = {arXiv},
+  note          = {Preprint, 27 authors. 50 expert spot-diagnosis cases: board-certified radiologists 0.83, trainees 0.45, GPT-5 0.30, Gemini 2.5 Pro 0.29}
+}
+
+@article{kazerouni2023,
+  author  = {Kazerouni, Amirhossein and Aghdam, Ehsan Khodapanah and Heidari, Moein and Azad, Reza and Fayyaz, Mohsen and Hacihaliloglu, Ilker and Merhof, Dorit},
+  title   = {Diffusion models in medical imaging: A comprehensive survey},
+  journal = {Medical Image Analysis},
+  year    = {2023},
+  volume  = {88},
+  pages   = {102846},
+  doi     = {10.1016/j.media.2023.102846},
+  note    = {PMID 37295311}
+}
+
+@misc{fda_ai_devices,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Artificial Intelligence-Enabled Medical Devices},
+  howpublished = {\url{https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices}},
+  note         = {Living list. Trade-press counts (AuntMinnie, Applied Radiology, early 2026): ~1,450 authorizations, ~76\% radiology. Not checked against the list itself}
+}
+
+% --- Boston Children's ------------------------------------------------------
+
+@misc{openai2026bch,
+  author       = {{OpenAI}},
+  title        = {Boston Children's Hospital},
+  year         = {2026},
+  month        = may,
+  howpublished = {\url{https://openai.com/index/boston-childrens-hospital}},
+  note         = {Vendor customer story, 29 May 2026. Claims a "co-pilot geneticist" contributed to 40+ previously unresolved rare-disease diagnoses, plus admin automation. Self-reported; page not directly readable (403), details via press coverage}
+}
+
+@misc{beckers2024bch,
+  author       = {{Becker's Hospital Review}},
+  title        = {Boston Children's Hospital adopts new {ChatGPT} platform},
+  year         = {2024},
+  howpublished = {\url{https://beckershospitalreview.com/innovation/boston-childrens-hospital-adopts-new-chatgpt-platform.html}},
+  note         = {Early adopter of ChatGPT Team; framed around productivity and collaboration}
+}
+
+% --- Hospital cloud --------------------------------------------------------
+
+@misc{klas2025cloud,
+  author       = {{Becker's Hospital Review}},
+  title        = {Most health systems haven't left on-prem {IT}: {KLAS}},
+  year         = {2025},
+  month        = jul,
+  howpublished = {\url{https://www.beckershospitalreview.com/healthcare-information-technology/ehrs/most-health-systems-havent-left-on-prem-it-klas/}},
+  note         = {Reports a KLAS study (36 systems, interviews Apr 2024--Apr 2025): >80\% use a public cloud provider, few have left on-prem. Small sample; directional only}
+}
+
+% --- Hospital IT capacity and governance practice (trade/vendor sources) -----
+
+@misc{definitive2025it,
+  author       = {{Definitive Healthcare}},
+  title        = {Average Hospital {IT} Expenses \& Budget Benchmarks},
+  year         = {2025},
+  month        = nov,
+  howpublished = {\url{https://www.definitivehc.com/resources/healthcare-insights/average-it-expenses-us-hospitals}},
+  note         = {Published 7 Nov 2025. IT about 2.3\% of hospital operating expense (2024); proprietary estimate from Medicare Cost Report data}
+}
+
+@misc{wittkieffer_it,
+  author       = {{Becker's Hospital Review}},
+  title        = {65\% of health systems spend less than recommended on {IT}},
+  howpublished = {\url{https://www.beckershospitalreview.com/healthcare-information-technology/65-of-health-systems-spend-less-than-recommended-on-it/}},
+  note         = {Reports a WittKieffer survey of 110 healthcare CIOs: nearly 65\% spend under the recommended 5\% of revenue on IT. Year not confirmed}
+}
+
+@misc{rackspace2025cloud,
+  author       = {{Rackspace Technology}},
+  title        = {Healthcare Cloud Evolution: Key Takeaways and Strategic Insights},
+  year         = {2025},
+  howpublished = {\url{https://www.rackspace.com/en-ca/blog/insights-healthcare-cloud-evolution}},
+  note         = {Vendor report (2025 State of Cloud), 150 healthcare IT leaders: 43\% cite the skills gap as the main barrier to cloud management}
+}
+
+@misc{upmc2024gov,
+  author       = {{Center for Connected Medicine at UPMC} and {KLAS Research}},
+  title        = {{AI} Oversight of Growing Interest to Health Care Executives},
+  year         = {2024},
+  month        = feb,
+  howpublished = {\url{https://www.upmc.com/media/news/021524-ccm-ai}},
+  note         = {Press release, 15 Feb 2024. Nearly three dozen health system executives: 16\% had a system-wide AI governance policy}
+}
+
+@misc{elion2025gov,
+  author       = {{Elion}},
+  title        = {New Report Finds Health Systems Overwhelmed by {AI} Demand as Project Requests Outpace Governance Capacity},
+  year         = {2025},
+  month        = nov,
+  howpublished = {\url{https://aijourn.com/new-report-finds-health-systems-overwhelmed-by-ai-demand-as-project-requests-outpace-governance-capacity/}},
+  note         = {Press release for "The AI Governance Playbook", 18 Nov 2025 (Business Wire). 20+ health systems: submissions outpace decisions nearly 3:2; most get 4--6 submissions/month, half decide fewer than 3; over 75\% run on two or fewer dedicated FTEs. Vendor's own figures}
+}

@@ -1,8 +1,12 @@
 = Computing Infrastructure for Clinical AI -- working notes
 :toc: macro
-:toclevels: 2
+:toclevels: 3
+:bibtex-file: refs.bib
+:bibtex-style: apa
 
-Living document. Current thinking only -- rewrite, don't append.
+Living document. Current thinking only -- rewrite, don't append. The argument section follows the
+talk's outline; each part keeps Rudolph's point, the evidence for it, and what is still open.
+Citations are `+cite:[key]+` into `refs.bib` (renders with asciidoctor-bibtex; readable without).
 
 toc::[]
 
@@ -18,58 +22,216 @@ toc::[]
 * Health neighbours on the day: Musen (community standards, 9:15), Chaudhary (private data
   repositories, 1:30), Mainkar (federated surgical data, 1:30).
 
-== Thesis (draft)
+== Through-line
 
-The hard part of clinical AI was never the model. It is everything around it -- and "everything
-around it" is infrastructure.
+The clinical AI that actually delivers value is small, predictive and local. Hospitals can neither
+_run_ it -- they were never built to compute -- nor _approve_ it, because governance was written
+for a different machine: the LLM. The fix is infrastructure, and governance that can tell the
+difference.
+
+Candidate quotable lines:
+
+* "Forget AI -- most hospitals can't do any advanced computing."
+* "A 100 MB model that reads images and writes images gets asked about hallucination and leaking
+  PHI to big model companies. There is no text. There is no leak."
+* "Do not move the data. Move the computation."
+
+== Position in the session
+
+The other talks mostly bring capability: a network (Hart, Internet2), a new AI method for small-cohort
+multiomics (Alter), federated learning tooling (Xu, NVIDIA -- likely FLARE), an NSDF node (Kirby,
+AURORA). Bremer's and Nikolich's topics aren't known in detail. This talk is the reality check from the
+receiving end: the hospital can't absorb any of that yet. Probably the only talk saying "the
+bottleneck isn't the technology."
+
+* *Allies to name.* Alter's method is exactly the non-LLM, predictive AI of section 2 -- and would hit
+  the governance wall of section 4. Xu's federated learning presupposes sites that can compute;
+  section 3 says most can't. Kirby's node is who the section 6 ask is addressed to.
+* *Overlap risk.* Section 6 (compute-to-data, HARBOR) sits next to Xu's federated learning. Frame it
+  as the precondition (sites need infrastructure and governance before they can join any federation),
+  not a rival platform, or it reads as a product pitch.
+* *Session theme.* "Trustworthy autonomy": the clinical trust problem isn't autonomy, it's that
+  institutions can't tell kinds of AI apart. Section 2's depth argument covers autonomy in one beat.
+* *Discussion.* The 20-minute discussion is likely to come back to this talk because it disputes the
+  premise. Prepare for: "isn't cloud the answer?" (KLAS: shallow), "what about FL?" (needs sites),
+  "BCH uses ChatGPT" (advisory, human-read).
+
+== The argument
+
+=== 1. Current state of "AI" in hospitals
+
+*Rudolph's point.* There isn't really any -- not in the Northeast, and certainly not at places like
+Boston Children's. Rudolph deployed the only semi-production AI workflows in clinical radiology at
+BCH, and they are predictive. BCH uses generative AI, but not on clinically load-bearing work. Most
+generative effort goes where LLMs plausibly fit: interpreting free-text clinical notes.
+
+*Evidence.*
+
+* *Predictive AI is widespread but mostly vendor-supplied and EHR-embedded*: 71% of US hospitals
+  used EHR-integrated predictive AI in 2024 cite:[astp2025], typically for inpatient risk and
+  scheduling, mostly from the EHR vendor (79%) cite:[nong2025]. That is the "AI" hospitals mean
+  when they say they have AI -- not models they build or run themselves.
+* *Cleared clinical AI is overwhelmingly imaging*: roughly three-quarters of FDA AI device
+  authorizations are radiology cite:[fda_ai_devices] (trade-press count; verify before a slide).
+* *Generative AI in hospitals is text and documentation*: 31.5% of hospitals had EHR-integrated
+  generative AI in 2024 cite:[everson2025]; in a 43-system survey, ambient note-taking was the only
+  use case every system was pursuing cite:[poon2025].
+* *Generative AI is not doing load-bearing clinical reasoning*: on 2,400 real cases, LLMs did worse
+  than physicians and ignored guidelines -- "not ready for autonomous clinical decision-making"
+  cite:[hager2024]; giving physicians GPT-4 did not improve their diagnoses cite:[goh2024].
+
+[WARNING]
+====
+*The BCH claim needs care.* BCH has used ChatGPT since at least 2024 cite:[beckers2024bch]. OpenAI's
+May 2026 customer story says BCH runs an enterprise ChatGPT layer and that a "co-pilot geneticist" helped resolve 40+ previously undiagnosed rare-disease cases
+cite:[openai2026bch]. It is vendor-published and self-reported, and the tool is advisory -- a
+geneticist reads the output and makes the call. Still, someone in the room may have seen it. Safer
+phrasing: _no generative AI in an autonomous or load-bearing clinical role; where it touches
+diagnosis it is advisory, and a human reads every output_. That also matches the Red Hat deck's
+point that everywhere generative AI landed, a human reads the output before anything happens.
+====
+
+*Can LLMs analyse images? Is there a generative tech that does?* Short answer: not reliably, and
+diffusion models do something else.
+
+* Multimodal LLMs are much weaker on images than on text. GPT-4V scored 81.5% on text-only radiology
+  board questions but 47.8% on image questions, with hallucinated findings cite:[hayden2024]. On 50
+  expert spot-diagnosis cases, GPT-5 and Gemini 2.5 Pro scored about 0.30 against 0.83 for
+  board-certified radiologists cite:[datta2025radle] (preprint).
+* Diffusion models are the image-generating counterpart. In medical imaging they are used mostly
+  for synthesis and data augmentation, denoising, reconstruction, super-resolution, image-to-image
+  translation and some anomaly detection cite:[kazerouni2023] -- making or cleaning images, not
+  reading them.
+* Image _interpretation_ that works -- detection, segmentation, quantification -- is still the
+  discriminative, predictive kind. That is section 2's point.
+
+*Open.* Is "the Northeast" a claim to make on stage? The data shows a resource divide (system vs
+independent, urban vs rural) rather than a regional one -- see section 3.
+
+=== 2. What exactly is "AI"?
+
+*Rudolph's point.* Today "AI" means LLMs. But most AI that actually delivers clinical value is not
+LLM-based: it is old-school pattern matching and classification -- tumour detection, tissue
+labelling, segmentation. Calling both "AI" creates a governance mismatch (section 4).
+
+*Supporting.* The FDA list (imaging-dominated, predictive) versus where generative AI landed
+(documentation) makes the split concrete cite:[fda_ai_devices,poon2025]. The Red Hat material adds
+the mechanism: a predictive model is a deterministic forward pass from rich input to bounded output;
+a generative model samples one admissible output from a distribution, so its probabilism is the task,
+not a bug. The two warrant different trust and different oversight.
+
+*Open.* Use the mechanism (forward pass vs sampling) on stage, or keep it to "pattern matching vs
+text generation"? The room is technical; the mechanism is a 20-second win.
+
+=== 3. What is computing in a hospital?
+
+*Rudolph's point.* Very little. Until recently, for clinical staff, computers ran Outlook and
+scheduling; behind them sat enterprise databases for billing. Using computers for actual computing
+barely existed, and still barely does. Forget AI -- hospitals are mostly not equipped for any advanced
+computing. The response is to move to the cloud and deploy there.
+
+*Evidence.*
+
+* *Cloud is common but shallow*: a KLAS study reported in July 2025 found more than 80% of health
+  systems use a public cloud provider, but few have actually left on-prem cite:[klas2025cloud].
+  Small sample (36 systems), so directional only. "On the cloud" usually means some workloads or a
+  hosted EHR, not a research computing platform.
+* *Regional variation -- the data shows a resource divide.* Predictive AI use: system-affiliated
+  hospitals 86% vs independent 37%; urban 81% vs rural 56%; critical access 50% cite:[astp2025].
+  Generative AI: major teaching hospitals 54% early adopters vs 26% for non-teaching
+  cite:[everson2025]. Hospitals that build and evaluate their own models skew well-resourced and
+  system-affiliated cite:[nong2025]. No good cloud data by region turned up.
+* *Hospitals spend little on IT and lack the skills to use cloud*: IT is about 2.3% of hospital
+  operating expense cite:[definitive2025it]; nearly 65% of health systems spend under the
+  recommended 5% of revenue cite:[wittkieffer_it]; 43% of healthcare IT leaders name the skills gap
+  as the main barrier to cloud cite:[rackspace2025cloud] (vendor survey).
+
+*Open.* Want a number on stage? The resource-divide figures are stronger and more defensible than
+the cloud figures.
+
+=== 4. Governance -- a good idea with a challenging application
+
+*Rudolph's point.* This is what happens when well-meaning people who can't define AI must write
+policy to govern it. Because "AI" means generative AI, the policies stall or break on anything else.
+A small Python model -- about 100 MB, doing tissue segmentation, consuming images and producing images
+-- is put through a process that asks about hallucination guardrails. The question is moot: the model
+is a deterministic forward pass, not a sampler. Then it stalls on "leaking PHI in text to big model
+companies." There is no text and no leak: the model never sees text, sends nothing out, and could run
+on a tablet.
+
+*Supporting.* Hospitals' own evaluation capacity is thin and uneven: of hospitals using predictive
+models, 61% evaluate them locally for accuracy and 44% for bias cite:[nong2025]. Hospitals with
+weaker predictive-AI evaluation were _more_ likely to be early generative AI adopters
+cite:[everson2025]. Governance itself is thin: in early 2024 only 16% of health systems had a
+system-wide AI governance policy cite:[upmc2024gov], and by late 2025 submissions outpaced committee
+decisions nearly 3:2, with most programs run by two or fewer dedicated staff cite:[elion2025gov]
+(vendor figures). So the scrutiny is pointed at the wrong things: heavy on the small local model,
+lighter on the generative tools moving fastest.
+
+*Open.* One concrete before/after anecdote (weeks or months lost on a specific segmentation model)
+would carry this section.
+
+=== 5. It's all about the infrastructure
+
+*Rudolph's point.* This is the first real need. Institutions that didn't know computers could compute
+now need fairly sophisticated computing. Cloud, job scheduling, containers and orchestration are
+alien to IT departments whose job has been installing locked-down Windows on consumer desktops.
+
+*Supporting.* Sections 1--4 converge here: value is in small predictive models (1, 2); hospitals
+can't run them (3); governance can't classify them (4). Infrastructure is the common fix. For this
+room, this is the familiar part: federated data access, provenance, workflow portability -- the
+summit's own cross-cutting list -- with one difference: in medicine the data cannot move.
+
+=== 6. What can be done?
+
+_Claude's draft for Rudolph to cut or replace._
+
+. *Triage governance by what a model is, not what it is called.* A short intake that asks the
+  questions that matter: inputs and outputs (images? text?), where it runs, whether anything leaves
+  the building, deterministic or sampled, size. A local, image-in/image-out, no-egress predictive
+  model gets a fast lane; hallucination and data-leak review is kept for generative and external-API
+  tools. Governance stops being one gate sized for the scariest case.
+. *Don't make every hospital build a data centre.* Provide computing as shared infrastructure:
+  a platform that runs containerised, validated analyses next to the data (ChRIS), on-prem or in a
+  research cloud, with audit and provenance built in. The platform carries the compliance work once,
+  so each new model doesn't redo it.
+. *Move the computation, not the data.* A registry of processable data (HARBOR): find the cohort,
+  send the computation to it, return only results -- no images, no PHI. Sites that could never share
+  data can contribute, and a small hospital joins with a key, not a data centre.
+. *Close the resource divide, don't widen it.* The hospitals least able to compute are the
+  independent, rural and critical-access ones cite:[astp2025]. Shared federated infrastructure is
+  how they participate; per-hospital build-outs leave them behind.
+. *The ask of this room.* Treat hospitals as first-class sites in national data fabrics like NSDF.
+  Bring the standards (Musen's talk), the networking (Internet2) and the federation tooling. The
+  hospital side brings the data and the clinical questions.
+
+=== 7. Conclusions
+
+_Draft._
+
+* The clinical AI that works today is narrow, predictive, often imaging -- and not what policy
+  thinks "AI" is.
+* Hospitals were built to run care, not computation.
+* Governance written for LLMs blocks the models that already work.
+* The fix is infrastructure -- shared, federated, compute-to-data -- and governance that can tell a
+  segmentation model from a chatbot.
 
 == Shape
 
-Numbered outline as a slidedown `.nexus{}` hub, as in the Red Hat talk: each section is a
-spoke (`.jump{.target{...}}`), advancing off a spoke's end returns to the hub, Esc returns from
-anywhere, and visited spokes are dimmed. Pick by number, arrows + Enter, or click. Order is
-chosen live, so sections can be skipped if time runs short. See
-`~/src/slidedown/examples/nexus/nexus-demo.sd`.
+Numbered outline as a slidedown `.nexus{}` hub, as in the Red Hat talk: each section is a spoke,
+advancing off a spoke's end returns to the hub, Esc returns from anywhere, visited spokes dim. Pick by
+number, arrows + Enter, or click. Order is chosen live, so sections can be skipped if time runs short.
 
 NOTE: no copy of the nexus version of the Red Hat deck exists anywhere reachable. Checked
 2026-10-16: `RedHat2026_Hackathon` (local + GitHub, one commit, linear show-of-hands deck),
 `RedHat2026_ClinicalAI` (GitHub, May 2026 roundtable deck, pre-nexus), all slidedown branches,
 stashes and unreachable commits, and GitHub code search. Rebuilt from memory here instead.
 
-[cols="1,4,6"]
-|===
-|# |Section |Intent / open questions
+Shape concerns:
 
-|1 |Current state of "AI" in hospitals
-|What's actually deployed vs the headlines. Red Hat thread 1 is raw material: cleared AI is
-predictive and imaging; generative landed in documentation/admin, always human-read.
-
-|2 |What exactly is "AI"?
-|Predictive vs generative; probabilism is the task, not a bug. Red Hat threads 2--3. Ties to the
-session's "trustworthy autonomy" framing.
-
-|3 |What is computing in a hospital?
-|_Open -- Rudolph has ideas._
-
-|4 |Governance -- a good idea with a challenging application
-|_Open -- Rudolph has ideas._
-
-|5 |It's all really about the infrastructure
-|The thesis lands here.
-
-|6 |What can be done?
-|Likely compute-to-data / HARBOR (Red Hat thread 5) -- the strongest fit for an NSDF room.
-
-|7 |Conclusions
-|
-|===
-
-=== Shape concerns
-
-* Seven spokes in ten minutes is ~80 s each, before the intro. The hub makes skipping cheap;
-  merging (1+2, 3+5) is still an option.
-* "It's all about the infrastructure" is the thesis, not a peer section -- it may work better as
-  the turn the earlier sections build to.
+* Seven spokes in ten minutes is ~80 s each, before the intro. The hub makes skipping cheap.
+* Sections 1 and 2 now argue one thing (what's deployed is predictive; "AI" has come to mean
+  LLMs). Section 5 is the turn the others build to, not a peer.
 
 == Format and look
 
@@ -86,12 +248,29 @@ session's "trustworthy autonomy" framing.
 * Deck order: title, whoami, whatido, hub (`.id{outline}`), then the spokes, two slides each
   (conclusions one). `transition: zoom` is on: the chosen hub entry flies up to become the
   spoke's heading, so each spoke's first `.h1` must match its menu text.
-* Spoke content is a *draft*. 1, 2, 5 (part), 6 are adapted from the Red Hat deck; 3, 4, 7 are
-  placeholders written without Rudolph's input -- expect them to be replaced.
+* Each spoke is three slides: Rudolph's point; the figures (terminal-style bar charts, `.lbl` /
+  `.bar` / `.pct` spans); a closing slide whose heading matches the hub entry, so the end-of-spoke
+  zoom flies the same words back into the menu. Closing slides carry explicit ids (`<spoke>-end`)
+  because a repeated title would collide with the spoke's address. Conclusions is one slide.
+* Every figure on a slide has a source line (`.src`) under the terminal; full entries in `refs.bib`.
+  Rule: no number on a slide without a source.
+* Session call-outs on slides: Alter (2, closing), Xu (6, "move the computation"), Hart, Kirby and
+  Musen (6, the ask).
+* Serving: GitHub Pages at https://rudolphpienaar.github.io/NSDF2026/. `.github/workflows/pages.yml`
+  builds on every push to `master` with slidedown pinned to the FNNDSC/slidedown#1 merge
+  (`05ec368`) and deploys `talk/`. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
 
 == Open questions
 
-* Section 3, 4, 7 content -- Rudolph has ideas; drafts are stand-ins.
-* "The hard part was never the model" is both the whatido closer and spoke 5's line. Keep one,
-  or make whatido foreshadow it deliberately.
-* Do 1 and 2 merge?
+* Section 1: the opening slide now says "advisory, a human reads every output" -- check it matches
+  what Rudolph wants to claim about BCH.
+* Trade/vendor figures (Definitive, WittKieffer, Rackspace, UPMC/KLAS, Elion, KLAS cloud) are
+  weaker than the peer-reviewed ones; decide which survive onto the final slides.
+* Section 1/3: say "the Northeast", or say "even well-resourced academic centres"?
+* Section 4: a concrete segmentation-model governance anecdote.
+* Section 6: which of the five moves to keep; ten minutes holds two or three.
+* "The hard part was never the model" is on the whatido slide and in section 5. Keep one.
+
+== References
+
+bibliography::[]
