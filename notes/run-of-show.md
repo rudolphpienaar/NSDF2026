@@ -25,12 +25,13 @@ cd talk && python3 -m http.server 8000
 | 2 | Whoami — roles, then credentials. 7 reveals |
 | 3 | Whatido — ChRIS, HARBOR, the hospital/cloud boundary |
 | 4 | Outline — the nexus hub. Press 1–7, arrows + Enter, or click |
-| 5–11 | One spoke per section (stubs) |
+| 5–22 | Sections 1–6, three slides each: the point, the evidence, a closing slide |
+| 23 | Section 7, Conclusions |
 
 Advancing off the end of a section returns to the hub; Backspace (or Esc)
 returns from anywhere. In fullscreen use Backspace -- the browser keeps Esc
-for exiting fullscreen. `f` toggles the deck's own fullscreen. Visited sections dim on the hub (per browser tab — a fresh tab
-starts clean).
+for exiting fullscreen. `f` toggles the deck's own fullscreen.
+Visited sections dim on the hub (per browser tab — a fresh tab starts clean).
 
 ## Opening
 
