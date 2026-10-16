@@ -150,6 +150,11 @@ independent, urban vs rural) rather than a regional one -- see section 3.
 LLM-based: it is old-school pattern matching and classification -- tumour detection, tissue
 labelling, segmentation. Calling both "AI" creates a governance mismatch (section 4).
 
+*The surveys prove the point.* The 2026 adoption surveys count "any AI" and never split generative
+from predictive cite:[eliciting2026,ama2026]; their top reported uses (ambient notes,
+documentation, research summaries) are generative, while what the FDA clears is predictive
+cite:[fda_ai_devices_2026]. Even the measurement of AI adoption doesn't define AI.
+
 *Supporting.* The FDA list (imaging-dominated, predictive) versus where generative AI landed
 (documentation) makes the split concrete cite:[fda_ai_devices,poon2025]. The Red Hat material adds
 the mechanism: a predictive model is a deterministic forward pass from rich input to bounded output;
@@ -296,6 +301,12 @@ Shape concerns:
   because a repeated title would collide with the spoke's address. Conclusions is one slide.
 * Every figure on a slide has a source line (`.src`) under the terminal; full entries in `refs.bib`.
   Rule: no number on a slide without a source.
+* Evidence slides carry three layers of grounding: a subtitle (`.h2`) stating the question the
+  chart answers; a dim caption row per chart group saying what is measured, in what units, and
+  for whom; and a takeaway bar in plain words. Rule: a chart never appears without saying what it
+  measures and why it is there.
+* Name the kind of AI every time. Where a source doesn't (most adoption surveys count "any AI"),
+  the slide says so.
 * Session call-outs on slides: Alter (2, closing), Xu (6, "move the computation"), Hart, Kirby and
   Musen (6, the ask).
 * Serving: GitHub Pages at https://rudolphpienaar.github.io/NSDF2026/. `.github/workflows/pages.yml`

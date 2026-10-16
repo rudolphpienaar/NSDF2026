@@ -314,14 +314,19 @@
   .title{What the Numbers Say}
   .body{
     .h1{What the Numbers Say}
+    .h2{How much AI is in US healthcare in 2026 -- and doing what?}
     .div{.class{term}
 .typewriter{$> survey --year=2026}
-      .o{.span{.class{lbl} systems using AI}.span{.class{bar} ███████████████}.span{.class{pct} 75%}}
-      .o{.span{.class{lbl} top use: notes}.span{.class{bar} █████████████▌}.span{.class{pct} 68%}}
-      .o{.span{.class{lbl} physicians using AI}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
-      .o{.span{.class{lbl} FDA AI = radiology}.span{.class{bar} ███████████████}.span{.class{pct} 76%}}
-      .o{1,614 FDA AI devices. Tagged as LLM-based: .bf{none} -- the FDA has yet to tag them.}
+      .o{.span{.class{dim} use any "AI" -- surveys don't say which kind; top uses are generative}}
+      .o{.span{.class{lbl} health systems}.span{.class{bar} ███████████████}.span{.class{pct} 75%}}
+      .o{.span{.class{lbl} physicians}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
+      .o{.span{.class{dim} top use in health systems: ambient note-taking (generative)}}
+      .o{.span{.class{lbl} clinical notes}.span{.class{bar} █████████████▌}.span{.class{pct} 68%}}
+      .o{.span{.class{dim} FDA-cleared AI devices (predictive) that read images}}
+      .o{.span{.class{lbl} radiology}.span{.class{bar} ███████████████}.span{.class{pct} 76%}}
+      .o{1,614 FDA-cleared AI devices -- tagged as generative / LLM-based: .bf{none}.}
     }
+    .div{.class{prompt} GENERATIVE AI WRITES THE NOTES. PREDICTIVE AI READS THE IMAGES.}
     .div{.class{src} Eliciting Insights via Fierce Healthcare, Mar 2026 (n=120 systems) · AMA physician survey, Mar 2026 (n=1,692) · FDA AI-enabled device list, counted Oct 2026 (1,230 of 1,614)}
   }
 }
@@ -331,6 +336,7 @@
   .title{Current State of AI in Hospitals}
   .body{
     .h1{Current State of "AI" in Hospitals}
+    .h2{What AI can do in a lab vs what hospitals actually run}
     .div{.class{term}
 .typewriter{$> summary}
       .o{Deployed clinical AI: .bf{predictive}, mostly imaging.}
@@ -362,15 +368,16 @@
   .title{Can LLMs Read Images?}
   .body{
     .h1{Can LLMs Read Images?}
+    .h2{Frontier AI vs radiologists on 200 hard image cases (RadLE 2.0, Jul 2026)}
     .div{.class{term}
 .typewriter{$> benchmark --task=radiology --year=2026}
-      .o{.span{.class{dim} RadLE 2.0, Jul 2026: 200 cases, 16 frontier models}}
-      .o{.span{.class{lbl} radiologists}.span{.class{bar} █████████▌}.span{.class{pct} 989/2000}}
-      .o{.span{.class{lbl} best model}.span{.class{bar} ███████▌}.span{.class{pct} 758/2000}}
-      .o{Gemini 3 Pro, GPT-5.6, Claude Fable 5 -- none reached the human baseline.}
-      .o{Many wrong answers delivered with .bf{high confidence.}}
+      .o{.span{.class{dim} score out of 2000: right answers earn points, confident wrong answers lose them}}
+      .o{.span{.class{lbl} radiologists}.span{.class{bar} █████████▌}.span{.class{pct} 989}}
+      .o{.span{.class{lbl} best AI model}.span{.class{bar} ███████▌}.span{.class{pct} 758}}
+      .o{16 frontier models tested, incl. Gemini 3 Pro, GPT-5.6, Claude Fable 5. .bf{None} reached the radiologists.}
       .o{Diffusion models .bf{make and clean} images -- they don't read them.}
     }
+    .div{.class{prompt} BEST MODEL: 23% BELOW RADIOLOGISTS -- AND OFTEN CONFIDENTLY WRONG.}
     .div{.class{src} CRASH Lab, RadLE 2.0 technical report, Jul 2026; scores via The Decoder, 19 Jul 2026 · Kazerouni et al., Med Image Anal 2023 (diffusion survey)}
   }
 }
@@ -410,15 +417,17 @@
   .title{Resources, Not Regions}
   .body{
     .h1{Resources, Not Regions}
+    .h2{Which hospitals use AI? It follows money and size.}
     .div{.class{term}
 .typewriter{$> stats --predictive-ai --by=hospital}
-      .o{.span{.class{dim} predictive AI use, 2024 -- newest national data}}
-      .o{.span{.class{lbl} system-affiliated}.span{.class{bar} █████████████████}.span{.class{pct} 86%}}
+      .o{.span{.class{dim} % of US hospitals using predictive AI, by hospital type (2024, newest national data)}}
+      .o{.span{.class{lbl} in a health system}.span{.class{bar} █████████████████}.span{.class{pct} 86%}}
       .o{.span{.class{lbl} independent}.span{.class{bar} ███████}.span{.class{pct} 37%}}
       .o{.span{.class{lbl} urban}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
       .o{.span{.class{lbl} rural}.span{.class{bar} ███████████}.span{.class{pct} 56%}}
-      .o{2026 AI-governance budgets: large systems .bf{6.8%} of IT and quality spend, small hospitals .bf{2.3%}.}
+      .o{Planned 2026 spend on AI governance: large systems .bf{6.8%} of IT and quality budget, small hospitals .bf{2.3%}.}
     }
+    .div{.class{prompt} INDEPENDENT HOSPITALS: LESS THAN HALF THE ADOPTION OF SYSTEM HOSPITALS.}
     .div{.class{src} ASTP Data Brief 80, Sep 2025 (2024 AHA survey) · Black Book survey via Becker's, Oct--Nov 2025 (n=182)}
   }
 }
@@ -428,6 +437,7 @@
   .title{What Is Computing in a Hospital?}
   .body{
     .h1{What Is Computing in a Hospital?}
+    .h2{Isn't the cloud the answer? Not yet.}
     .div{.class{term}
 .typewriter{$> cloud --status
 > 80%+ use a public cloud. Few have left on-prem.}
@@ -473,6 +483,7 @@
   .title{Governance}
   .body{
     .h1{Governance}
+    .h2{How ready are hospitals to govern AI? (health-system surveys, late 2025)}
     .div{.class{term}
 .typewriter{$> stats --governance}
       .o{Only .bf{18%} of health systems have mature AI governance and a full strategy.}
