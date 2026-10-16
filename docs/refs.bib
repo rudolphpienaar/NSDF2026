@@ -191,3 +191,102 @@
   howpublished = {\url{https://aijourn.com/new-report-finds-health-systems-overwhelmed-by-ai-demand-as-project-requests-outpace-governance-capacity/}},
   note         = {Press release for "The AI Governance Playbook", 18 Nov 2025 (Business Wire). 20+ health systems: submissions outpace decisions nearly 3:2; most get 4--6 submissions/month, half decide fewer than 3; over 75\% run on two or fewer dedicated FTEs. Vendor's own figures}
 }
+
+% --- 2026 evidence (current frontier models, current adoption) -------------
+
+@misc{fda_ai_devices_2026,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {List of Artificial Intelligence-Enabled Medical Devices},
+  year         = {2026},
+  howpublished = {\url{https://www.fda.gov/medical-devices/artificial-intelligence-enabled-medical-devices/list-artificial-intelligence-enabled-medical-devices}},
+  note         = {Counted from the list 2026-10-16: 1,614 entries, latest decision 29 Jun 2026; 1,230 (76\%) lead panel Radiology; 335 in 2025, 181 in 2026 to date. No entries tagged as foundation-model/LLM; FDA says it "will explore methods to identify and tag" such devices}
+}
+
+@misc{eliciting2026,
+  author       = {{Fierce Healthcare}},
+  title        = {Health system {AI} adoption surges in 2026 with execs reporting increased {ROI}: survey},
+  year         = {2026},
+  month        = mar,
+  howpublished = {\url{https://www.fiercehealthcare.com/ai-and-machine-learning/75-us-healthcare-systems-use-plan-use-ai-platform-2026}},
+  note         = {Reports Eliciting Insights' second annual AI Adoption Survey, 120 US health systems: 75\% use at least one AI application (59\% in 2025); clinical note-taking the top use at 68\%. Secondary source; original report not located}
+}
+
+@misc{ama2026,
+  author       = {{American Medical Association}},
+  title        = {More than 80\% of physicians use {AI} professionally: {AMA} survey},
+  year         = {2026},
+  month        = mar,
+  howpublished = {\url{https://www.ama-assn.org/practice-management/digital-health/more-80-physicians-use-ai-professionally-ama-survey}},
+  note         = {1,692 physicians, 15 Jan--2 Feb 2026: 81\% use AI professionally (38\% in 2023); top uses research summarization and documentation}
+}
+
+@techreport{radle2_2026,
+  author      = {{CRASH Lab, Ashoka University}},
+  title       = {Radiology's Last Exam ({RadLE}) 2.0: A Benchmark for Autonomous Diagnosis by {AI} Agents in Radiology},
+  institution = {CRASH Lab},
+  type        = {Technical report},
+  year        = {2026},
+  month       = jul,
+  url         = {https://crashlab.in/radle-technicalreport},
+  note        = {200 cases, 16 models incl. GPT-5.6 Sol Pro, Gemini 3 Pro, Claude Fable 5, Grok 4.5. Confidence Weighted Index (0--2000): human experts 988.7, best model 758 (as reported by The Decoder, 19 Jul 2026; per-model table not in the technical report text). Several models made many high-confidence errors. Full paper pending}
+}
+
+@article{ferber2026mira,
+  author  = {Ferber, Dyke and Hilgers, Lars and H{\"o}per, Christiane and Kinny-K{\"o}ster, Benedict and others and Kather, Jakob Nikolas},
+  title   = {Towards autonomous medical artificial intelligence agents},
+  journal = {Nature},
+  year    = {2026},
+  volume  = {655},
+  pages   = {1282--1291},
+  doi     = {10.1038/s41586-026-10675-5},
+  note    = {20 authors (Crossref). MIRA agent on 500+ MIMIC-IV emergency cases with simulated patients: 88.9\% correct diagnosis; on a 311-case subset 87.8\% vs 78.1\% for four specialists. Simulation, not live deployment}
+}
+
+@misc{liu2026physicianbench,
+  author        = {Liu, Ruoqi and Mohiuddin, Imran Q. and Schoeffler, Austin J. and others},
+  title         = {{PhysicianBench}: Evaluating {LLM} Agents in Real-World {EHR} Environments},
+  year          = {2026},
+  eprint        = {2605.02240},
+  archivePrefix = {arXiv},
+  note          = {Preprint, 13 authors. 100 long-horizon tasks from real consultation cases in real EHR environments; 13 agents: best 46\% pass@1, open-source at most 19\%}
+}
+
+@article{bentegeac2026,
+  author  = {Bentegeac, R. and Le Guellec, B. and Maanaoui, M. and Gerard, E. and Amouyel, P. and Cheungpasitporn, W. and others},
+  title   = {Randomized Controlled Trial of Large Language Model-Assisted Diagnostic Accuracy in Nephrology},
+  journal = {Kidney International Reports},
+  year    = {2026},
+  volume  = {11},
+  number  = {9},
+  pages   = {106673},
+  doi     = {10.1016/j.ekir.2026.106673},
+  note    = {PMID 42502668. LLM-assisted clinicians 57.5\% top-3 accuracy vs 37.2\% unassisted; GPT-5 alone 77.1\%}
+}
+
+@article{qazi2026,
+  author  = {Qazi, Ihsan Ayyub and Ali, Ayesha and Khawaja, Asad Ullah and others},
+  title   = {Large language model diagnostic assistance for physicians in a lower-middle-income country: a randomized controlled trial},
+  journal = {Nature Health},
+  year    = {2026},
+  volume  = {1},
+  pages   = {198--205},
+  doi     = {10.1038/s44360-025-00007-8},
+  note    = {58 physicians (after a 20-hour AI course): 71.4\% with LLM vs 42.6\% conventional on diagnostic reasoning}
+}
+
+@misc{hfma2025gov,
+  author       = {{Healthcare Financial Management Association} and {Eliciting Insights}},
+  title        = {Health system adoption of {AI} outpaces internal governance and strategy},
+  year         = {2025},
+  month        = aug,
+  howpublished = {\url{https://www.hfma.org/press-releases/health-system-adoption-of-ai-outpaces-internal-governance-and-strategy/}},
+  note         = {233 health systems, Q2 2025: 88\% use AI internally; 18\% have mature governance and a fully formed AI strategy}
+}
+
+@misc{blackbook2025gov,
+  author       = {{Becker's Hospital Review}},
+  title        = {Hospitals face {AI} governance gaps heading into 2026, report finds},
+  year         = {2025},
+  howpublished = {\url{https://www.beckershospitalreview.com/healthcare-information-technology/ai/hospitals-face-ai-governance-gaps-heading-into-2026-report-finds/}},
+  note         = {Reports a Black Book survey of 182 hospital leaders (15 Oct--8 Nov 2025): 29\% enforce policies on AI model inventory, lineage and sign-off; 22\% highly confident of producing an AI audit trail within 30 days (15\% small hospitals); 2026 AI-governance budget share 6.8\% large systems vs 2.3\% small hospitals. Secondary source}
+}

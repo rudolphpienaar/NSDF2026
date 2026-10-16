@@ -65,7 +65,23 @@ Boston Children's. Rudolph deployed the only semi-production AI workflows in cli
 BCH, and they are predictive. BCH uses generative AI, but not on clinically load-bearing work. Most
 generative effort goes where LLMs plausibly fit: interpreting free-text clinical notes.
 
-*Evidence.*
+*Evidence -- 2026 (on the slides).*
+
+* *Adoption*: 75% of US health systems use at least one AI application, up from 59% in 2025;
+  clinical note-taking is the top use at 68% cite:[eliciting2026] (secondary source). 81% of
+  physicians use AI professionally, up from 38% in 2023 cite:[ama2026].
+* *Cleared AI is still imaging, and none of it is tagged as LLM-based*: the FDA list holds 1,614
+  devices (latest decision 29 Jun 2026), 1,230 (76%) radiology; no entry is tagged as
+  foundation-model or LLM-based, and the FDA says it will "explore methods to identify and tag" them
+  cite:[fda_ai_devices_2026] (counted from the list 2026-10-16).
+* *Capability vs deployment*: an autonomous agent beat specialists on simulated emergency cases
+  (87.8% vs 78.1% on a 311-case subset) cite:[ferber2026mira], but on 100 real-EHR tasks the best of
+  13 agents finished 46% cite:[liu2026physicianbench] (preprint). LLM assistance now improves
+  clinicians in some trials (57.5% vs 37.2% top-3 accuracy in nephrology, with GPT-5 alone at
+  77.1%) cite:[bentegeac2026]; see also cite:[qazi2026]. Capability is arriving; load-bearing
+  deployment is not.
+
+*Evidence -- background (2023--2024 data).*
 
 * *Predictive AI is widespread but mostly vendor-supplied and EHR-embedded*: 71% of US hospitals
   used EHR-integrated predictive AI in 2024 cite:[astp2025], typically for inpatient risk and
@@ -106,6 +122,13 @@ point that everywhere generative AI landed, a human reads the output before anyt
 
 *Can LLMs analyse images? Is there a generative tech that does?* Short answer: not reliably, and
 diffusion models do something else.
+
+* *2026 (on the slides)*: RadLE 2.0 (Jul 2026, 200 cases, 16 models incl. GPT-5.6 Sol Pro, Gemini 3
+  Pro, Claude Fable 5): on the confidence-weighted index human experts scored 988.7/2000, the best
+  model 758; none reached the human baseline, and several models made many high-confidence errors
+  cite:[radle2_2026]. Gemini 3 Pro reportedly had the highest raw accuracy, "nearly catching up" on
+  hit rate -- the gap is now calibration as much as accuracy.
+* _Background (2024--25):_
 
 * Multimodal LLMs are much weaker on images than on text. GPT-4V scored 81.5% on text-only radiology
   board questions but 47.8% on image questions, with hallucinated findings cite:[hayden2024]. On 50
@@ -172,7 +195,13 @@ is a deterministic forward pass, not a sampler. Then it stalls on "leaking PHI i
 companies." There is no text and no leak: the model never sees text, sends nothing out, and could run
 on a tablet.
 
-*Supporting.* Hospitals' own evaluation capacity is thin and uneven: of hospitals using predictive
+*Evidence -- late 2025 (on the slides).* Only 18% of health systems have mature AI governance and a
+fully formed strategy cite:[hfma2025gov]; submissions outpace committee decisions nearly 3:2
+cite:[elion2025gov]; 29% enforce policies on AI model inventory and sign-off, and only 22% are highly
+confident they could produce an AI audit trail within 30 days cite:[blackbook2025gov]. No 2026
+governance survey with national scope turned up.
+
+*Background.* Hospitals' own evaluation capacity is thin and uneven: of hospitals using predictive
 models, 61% evaluate them locally for accuracy and 44% for bias cite:[nong2025]. Hospitals with
 weaker predictive-AI evaluation were _more_ likely to be early generative AI adopters
 cite:[everson2025]. Governance itself is thin: in early 2024 only 16% of health systems had a
@@ -277,8 +306,11 @@ Shape concerns:
 
 * Section 1: the opening slide now says "advisory, a human reads every output" -- check it matches
   what Rudolph wants to claim about BCH.
-* Trade/vendor figures (Definitive, WittKieffer, Rackspace, UPMC/KLAS, Elion, KLAS cloud) are
-  weaker than the peer-reviewed ones; decide which survive onto the final slides.
+* Trade/vendor figures (Eliciting Insights, Black Book, Elion, Rackspace, KLAS cloud) are weaker
+  than the peer-reviewed ones; decide which survive onto the final slides.
+* Recency rule (Rudolph, 2026-10-16): slides use 2026 evidence and current frontier models
+  wherever it exists; older studies stay in the notes as background. Where nothing newer exists
+  (national hospital divide: 2024 AHA data; cloud: 2025), the slide says so.
 * Section 1/3: say "the Northeast", or say "even well-resourced academic centres"?
 * Section 4: a concrete segmentation-model governance anecdote.
 * Section 6: which of the five moves to keep; ten minutes holds two or three.
