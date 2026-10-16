@@ -73,6 +73,26 @@
         color: "#6a9955"
         margin-top: "0.6em"
         letter-spacing: "0.5px"
+    ".pair":
+        display: "inline-block"
+        width: "19ch"
+        text-indent: "0"
+    ".pair > .dim":
+        margin-left: "0.6ch"
+    ".barp":
+        color: "#4ec9b0"
+    ".barpn":
+        color: "#4ec9b0"
+        font-weight: "bold"
+        margin-left: "0.5ch"
+    ".barg":
+        color: "#c586c0"
+    ".bargn":
+        color: "#c586c0"
+        font-weight: "bold"
+        margin-left: "0.5ch"
+    ".term .snippet:has(.pair)::before, .term .snippet:has(> .dim:only-child)::before":
+        content: "''"
     "#slide-5":
         --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-6":
@@ -417,18 +437,20 @@
   .title{Resources, Not Regions}
   .body{
     .h1{Resources, Not Regions}
-    .h2{Which hospitals use AI? It follows money and size.}
+    .h2{Predictive vs generative AI, by hospital type}
     .div{.class{term}
-.typewriter{$> stats --predictive-ai --by=hospital}
-      .o{.span{.class{dim} % of US hospitals using predictive AI, by hospital type (2024, newest national data)}}
-      .o{.span{.class{lbl} in a health system}.span{.class{bar} █████████████████}.span{.class{pct} 86%}}
-      .o{.span{.class{lbl} independent}.span{.class{bar} ███████}.span{.class{pct} 37%}}
-      .o{.span{.class{lbl} urban}.span{.class{bar} ████████████████}.span{.class{pct} 81%}}
-      .o{.span{.class{lbl} rural}.span{.class{bar} ███████████}.span{.class{pct} 56%}}
-      .o{Planned 2026 spend on AI governance: large systems .bf{6.8%} of IT and quality budget, small hospitals .bf{2.3%}.}
+.typewriter{$> stats --ai --by=hospital --year=2024}
+      .o{.span{.class{dim} % of US hospitals using each kind, built into the EHR (2024, same national survey)}}
+      .o{.span{.class{lbl} }.span{.class{pair}.span{.class{barp} █}.span{.class{dim} predictive}}.span{.class{pair}.span{.class{barg} █}.span{.class{dim} generative}}}
+      .o{.span{.class{lbl} all hospitals}.span{.class{pair}.span{.class{barp} ███████}.span{.class{barpn} 71%}}.span{.class{pair}.span{.class{barg} ███}.span{.class{bargn} 31.5%}}}
+      .o{.span{.class{lbl} in a health system}.span{.class{pair}.span{.class{barp} ████████▌}.span{.class{barpn} 86%}}.span{.class{pair}.span{.class{barg} ███▌}.span{.class{bargn} 38.5%}}}
+      .o{.span{.class{lbl} independent}.span{.class{pair}.span{.class{barp} ███▌}.span{.class{barpn} 37%}}.span{.class{pair}.span{.class{barg} █▌}.span{.class{bargn} 16.3%}}}
+      .o{.span{.class{lbl} urban}.span{.class{pair}.span{.class{barp} ████████}.span{.class{barpn} 81%}}.span{.class{pair}.span{.class{barg} ███▌}.span{.class{bargn} 35.5%}}}
+      .o{.span{.class{lbl} rural}.span{.class{pair}.span{.class{barp} █████▌}.span{.class{barpn} 56%}}.span{.class{pair}.span{.class{barg} ██▌}.span{.class{bargn} 25.4%}}}
+      .o{.span{.class{dim} predictive = ML or statistical risk models · generative = LLMs (ChatGPT, Gemini, DAX)}}
     }
-    .div{.class{prompt} INDEPENDENT HOSPITALS: LESS THAN HALF THE ADOPTION OF SYSTEM HOSPITALS.}
-    .div{.class{src} ASTP Data Brief 80, Sep 2025 (2024 AHA survey) · Black Book survey via Becker's, Oct--Nov 2025 (n=182)}
+    .div{.class{prompt} THE HYPE IS GENERATIVE. THE USE IS PREDICTIVE. BOTH FOLLOW THE MONEY.}
+    .div{.class{src} Predictive: ASTP Data Brief 80, Sep 2025 · Generative: Everson et al., JAMA Netw Open 2025, Table 1 · both from the 2024 AHA IT Supplement; imaging AI outside the EHR not counted}
   }
 }
 
@@ -443,9 +465,10 @@
 > 80%+ use a public cloud. Few have left on-prem.}
       .o{"Move to the cloud" mostly means a hosted EHR and some workloads -- .bf{not research computing.}}
       .o{43% of healthcare IT leaders name the .bf{skills gap} as the main cloud barrier.}
+      .o{Planned 2026 spend on AI governance: large systems .bf{6.8%} of IT and quality budget, small hospitals .bf{2.3%}.}
     }
     .div{.class{prompt} THE GAP FOLLOWS MONEY AND SIZE.}
-    .div{.class{src} KLAS via Becker's, Jul 2025 (n=36) · Rackspace State of Cloud 2025 (vendor, n=150)}
+    .div{.class{src} KLAS via Becker's, Jul 2025 (n=36) · Rackspace State of Cloud 2025 (vendor, n=150) · Black Book via Becker's, Oct--Nov 2025 (n=182)}
   }
 }
 

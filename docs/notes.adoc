@@ -207,6 +207,11 @@ computing. The response is to move to the cloud and deploy there.
   systems use a public cloud provider, but few have actually left on-prem cite:[klas2025cloud].
   Small sample (36 systems), so directional only. "On the cloud" usually means some workloads or a
   hosted EHR, not a research computing platform.
+* *Predictive vs generative, like for like (on the 3B slide).* Same 2024 AHA survey, both counted
+  only if built into the EHR: predictive models 71% of hospitals vs generative (an LLM in the EHR)
+  31.5%; by type, system 86 vs 38.5, independent 37 vs 16.3, urban 81 vs 35.5, rural 56 vs 25.4
+  cite:[astp2025,everson2025]. The hype is generative; the use is predictive -- and both follow
+  money and size.
 * *What ASTP's "predictive AI" counts* (from the brief's survey question, checked 2026-10-16):
   "machine learning _or other predictive models_ that display output or recommendations ... in
   your EHR or an app embedded in or launched by your EHR". So it includes non-ML statistical
