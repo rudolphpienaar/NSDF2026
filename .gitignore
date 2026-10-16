@@ -1,0 +1,11 @@
+# Rendered slidedown output
+talk/
+examples/*/out/
+
+# Claude Code session state
+.claude/
+claude.resume
+
+# OS / editor cruft
+.DS_Store
+*.swp

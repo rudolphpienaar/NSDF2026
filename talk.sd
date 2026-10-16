@@ -1,0 +1,161 @@
+.meta{
+  title: "Computing Infrastructure for Clinical AI"
+  theme: "terminal"
+  typography:
+    baseline: presentation
+  snippets:
+    marker: "▸ "
+  css:
+    ".container":
+        font-size: "40px"
+    ".slide .body":
+        font-size: "1.12em"
+        line-height: "1.4"
+    ".snippet":
+        margin-bottom: "0.7rem"
+    ".snippet::before":
+        color: "#6a9955"
+    ".slide h1":
+        text-transform: "uppercase"
+        color: "#4ec9b0"
+        letter-spacing: "3px"
+        font-size: "2.6em"
+        line-height: "1.1"
+        text-align: "left"
+        text-shadow: "0 0 24px rgba(78, 201, 176, 0.45)"
+        border-bottom: "2px solid #4ec9b0"
+        padding-bottom: "0.15em"
+        margin-bottom: "0.2em"
+    ".slide h2":
+        color: "#9cdcfe"
+        font-size: "1.05em"
+        font-weight: "400"
+        text-align: "left"
+        letter-spacing: "0.5px"
+        margin-top: "0"
+        margin-bottom: "0.8em"
+    ".prompt":
+        color: "#dcdcaa"
+        background: "rgba(220, 220, 170, 0.08)"
+        border-left: "4px solid #dcdcaa"
+        padding: "14px 18px"
+        margin-top: "28px"
+        letter-spacing: "1px"
+    ".dim":
+        color: "#6a9955"
+    ".navbar-container":
+        display: "none"
+    "#slide-1":
+        --term-label: "'rudolph@artemis: ~/nsdf2026'"
+    "#slide-2":
+        --term-label: "'rudolph@artemis: ~ whoami'"
+    "#slide-3":
+        --term-label: "'rudolph@artemis: ~ whatido'"
+    "#slide-1 h1":
+        font-size: "2.2em"
+    ".container > br":
+        display: "none"
+    ".term":
+        position: "relative"
+        background: "#141414"
+        border: "1px solid #3e3e42"
+        border-radius: "10px"
+        box-shadow: "0 18px 50px rgba(0, 0, 0, 0.55)"
+        padding: "88px 40px 30px 40px"
+        margin: "30px 0 10px 0"
+        width: "100%"
+        box-sizing: "border-box"
+    ".term::before":
+        content: "var(--term-label, 'terminal')"
+        position: "absolute"
+        top: "0"
+        left: "0"
+        right: "0"
+        height: "52px"
+        line-height: "52px"
+        text-align: "center"
+        font-size: "0.6em"
+        letter-spacing: "1px"
+        color: "#858585"
+        background: "radial-gradient(circle at 30px 50%, #ff5f57 9px, transparent 10px), radial-gradient(circle at 60px 50%, #febc2e 9px, transparent 10px), radial-gradient(circle at 90px 50%, #28c840 9px, transparent 10px), #2d2d30"
+        border-bottom: "1px solid #3e3e42"
+        border-radius: "10px 10px 0 0"
+    ".slide .term pre":
+        background: "none"
+        border: "none"
+        box-shadow: "none"
+        padding: "0"
+        margin: "0"
+        font-size: "1em"
+        color: "#4ec9b0"
+    ".term > pre":
+        margin-bottom: "0.5em"
+    ".term .snippet":
+        margin-bottom: "0.35rem"
+        padding-left: "1.2em"
+    ".term .snippet:has(pre)":
+        padding-left: "0"
+        margin-top: "1em"
+        margin-bottom: "0.5em"
+    ".term .snippet:has(pre)::before":
+        display: "none"
+    ".num":
+        color: "#dcdcaa"
+        font-weight: "bold"
+    "#typewriter-1-1::after, #typewriter-2-1::after, #typewriter-3-1::after":
+        content: "'▊'"
+        color: "#4ec9b0"
+        animation: "blink 500ms linear infinite alternate"
+    ".cursor":
+        display: "inline-block"
+        color: "#4ec9b0"
+        font-weight: "bold"
+        animation: "blink 500ms linear infinite alternate"
+}
+
+.slide{
+  .title{Boot}
+  .body{
+    .h1{Computing Infrastructure for Clinical AI}
+    .h2{Needs and challenges -- NSDF Summit on Federated Autonomous Science}
+
+    .div{.class{dim} Rudolph Pienaar -- Boston Children's Hospital / Harvard Medical School}
+
+    .div{.class{term}
+.typewriter{$> ./talk --budget=10m --venue=nsdf}
+    }
+  }
+}
+
+.slide{
+  .title{Whoami}
+  .body{
+    .h1{Rudolph Pienaar}
+    .div{.class{term}
+.typewriter{$> whoami --verbose}
+      .o{Computational Scientist}
+      .o{Systems Architect}
+      .o{Brain Image Researcher}
+      .o{.typewriter{$> info --educational}}
+      .o{Assistant Professor of Radiology, Harvard Medical School}
+      .o{PhD Biomedical Engineering -- BEng / MEng Electrical Engineering}
+      .o{Thesis: reinforcement learning on dynamic physical systems}
+    }
+  }
+}
+
+.slide{
+  .title{Whatido}
+  .body{
+    .h1{What I Do}
+    .div{.class{term}
+.typewriter{$> whatido --at=bch}
+      .o{Build the infrastructure that runs research computation .bf{inside a hospital.}}
+      .o{.bf{ChRIS} -- open-source platform: containerised analyses, run next to clinical data.}
+      .o{.bf{HARBOR} -- a registry of .bf{processable} data. Find the cohort, send the compute to it.}
+      .o{Hospital on one side, research cloud on the other. .bf{I live on the boundary.}}
+    }
+
+    .div{.class{prompt} THE HARD PART WAS NEVER THE MODEL. IT IS EVERYTHING AROUND IT.}
+  }
+}
