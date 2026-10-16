@@ -141,6 +141,36 @@ diffusion models do something else.
 * Image _interpretation_ that works -- detection, segmentation, quantification -- is still the
   discriminative, predictive kind. That is section 2's point.
 
+*How a "language" model sees an image (mechanism, for Q&A).* The image is cut into small patches
+(on the order of 14--16 px square); a vision encoder -- a transformer, usually pretrained to match
+internet images with their captions -- turns each patch into a vector; those vectors are projected
+into the LLM's input space and sit in the sequence alongside text tokens. From there it is the same
+generative machine: the model samples text conditioned on everything in the sequence. So yes -- the
+image is tokenized and then joins the normal generative race. Why that hurts in radiology:
+
+* _Patch to vector, precisely._ Each patch's raw pixels (e.g. 14x14x3 = 588 numbers) are linearly
+  projected to a vector and given a position embedding; the encoder's transformer layers then mix
+  all patches, so each output vector carries whole-image context, not just its own fragment. The
+  caption training (CLIP/SigLIP-style) aligns the _whole image_ with its caption -- patches are never
+  individually paired with caption words; patch-level meaning only emerges indirectly. A small
+  trained projector maps the encoder outputs into the LLM's embedding space. The results are
+  continuous points, not vocabulary words.
+* _Resolution budget._ Images are downscaled to fit a token budget (Anthropic documents roughly
+  width x height / 750 tokens and resizing above about 1.15 megapixels). A mammogram is several
+  thousand pixels a side; microcalcifications are a few pixels wide and do not survive.
+* _Wrong data shape._ CT/MR are 3D volumes of hundreds of 12--16-bit slices with clinical windowing;
+  chat models take a handful of 8-bit 2D pictures.
+* _Wrong training signal._ The encoder learned "what caption fits this photo", not pixel-exact
+  boundaries. A segmentation model is trained on exactly that boundary, on that modality.
+* _Text out._ Findings must be verbalised; the output is sampled language, so the language prior
+  can override the pixels (plausible-sounding findings, confident wrong answers -- RadLE 2.0).
+* _Not "language" per se._ The transformer is a general sequence model; ViTs are transformers on
+  patches, and purpose-trained medical vision models do well on their task. The limit is training
+  data, objective, resolution and output form -- not the word "language".
+
+Open: numbers above are mechanism-level; find a citable source for "VLMs answer without looking"
+(language-prior shortcut) before putting it on a slide.
+
 *Open.* Is "the Northeast" a claim to make on stage? The data shows a resource divide (system vs
 independent, urban vs rural) rather than a regional one -- see section 3.
 
@@ -291,6 +321,10 @@ Shape concerns:
   last printed line as bullets reveal. On the hub, the menu prints line by line once
   `talk --outline` finishes, and the cursor parks blinking under it. Up/Down boxes the current
   entry. Relies on slidedown's `tw-done` class (set when a typewriter finishes).
+* Presenting keys: digits or Up/Down + Enter pick a section; Right advances; *Backspace* (or Esc)
+  returns to the outline; `f` toggles the deck's own fullscreen. In browser fullscreen Esc is
+  reserved by the browser (it exits fullscreen), so use Backspace -- especially on the tablet
+  (Vivaldi/Android has no Keyboard Lock). From FNNDSC/slidedown#2.
 * No blank lines inside slide bodies -- slidedown turns them into `<br>`.
 * Deck order: title, whoami, whatido, hub (`.id{outline}`), then the spokes, two slides each
   (conclusions one). `transition: zoom` is on: the chosen hub entry flies up to become the
@@ -310,8 +344,8 @@ Shape concerns:
 * Session call-outs on slides: Alter (2, closing), Xu (6, "move the computation"), Hart, Kirby and
   Musen (6, the ask).
 * Serving: GitHub Pages at https://rudolphpienaar.github.io/NSDF2026/. `.github/workflows/pages.yml`
-  builds on every push to `master` with slidedown pinned to the FNNDSC/slidedown#1 merge
-  (`05ec368`) and deploys `talk/`. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
+  builds on every push to `master` with slidedown pinned to `6ea98f7` (FNNDSC/slidedown#2 head,
+  on top of the #1 merge) and deploys `talk/`. Repin to the #2 merge commit once merged. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
 
 == Open questions
 

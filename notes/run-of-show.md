@@ -27,8 +27,9 @@ cd talk && python3 -m http.server 8000
 | 4 | Outline — the nexus hub. Press 1–7, arrows + Enter, or click |
 | 5–11 | One spoke per section (stubs) |
 
-Advancing off the end of a section returns to the hub; Esc returns from
-anywhere. Visited sections dim on the hub (per browser tab — a fresh tab
+Advancing off the end of a section returns to the hub; Backspace (or Esc)
+returns from anywhere. In fullscreen use Backspace -- the browser keeps Esc
+for exiting fullscreen. `f` toggles the deck's own fullscreen. Visited sections dim on the hub (per browser tab — a fresh tab
 starts clean).
 
 ## Opening

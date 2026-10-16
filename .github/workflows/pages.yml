@@ -21,13 +21,14 @@ jobs:
       - name: Checkout deck
         uses: actions/checkout@v4
 
-      # Pinned to the FNNDSC/slidedown#1 merge: deck CSS beats theme, console
-      # highlighting, tw-done, nexus polish. Bump deliberately, not by accident.
+      # Pinned deliberately. 6ea98f7 = FNNDSC/slidedown#2 head (Backspace returns
+      # to the nexus; 'f' fullscreen), on top of the #1 merge. Repin to the #2
+      # merge commit once it lands on main.
       - name: Checkout slidedown
         uses: actions/checkout@v4
         with:
           repository: FNNDSC/slidedown
-          ref: 05ec3687a3413ec65ae3564be35c8214c6d00435
+          ref: 6ea98f7633ae2b670a70fe3959f41db524b70a5b
           path: .slidedown
 
       - name: Setup Python
