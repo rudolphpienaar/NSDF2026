@@ -21,14 +21,14 @@ jobs:
       - name: Checkout deck
         uses: actions/checkout@v4
 
-      # Pinned deliberately. 6ea98f7 = FNNDSC/slidedown#2 head (Backspace returns
-      # to the nexus; 'f' fullscreen), on top of the #1 merge. Repin to the #2
+      # Pinned deliberately. 557474e = FNNDSC/slidedown#2 head (Backspace returns
+      # to the nexus; 'f' fullscreen; selection pulse), on top of the #1 merge. Repin to the #2
       # merge commit once it lands on main.
       - name: Checkout slidedown
         uses: actions/checkout@v4
         with:
           repository: FNNDSC/slidedown
-          ref: 6ea98f7633ae2b670a70fe3959f41db524b70a5b
+          ref: 557474e6ec1d69bc8c04dcab692e19f20bfc4b6a
           path: .slidedown
 
       - name: Setup Python

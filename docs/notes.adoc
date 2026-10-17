@@ -373,6 +373,18 @@ balance sheet. A crash would likely leave cheap GPUs behind -- like dark fibre a
 is an opportunity for federated, compute-to-data infrastructure. "Build on what survives the
 crash."
 
+*If it pops (on the slides).* Rudolph's irony: hospitals are buffered -- they barely use generative
+AI (31.5% EHR-integrated in 2024 cite:[everson2025]) while predictive AI just keeps running; the
+exposed ones are whoever just bought into generative AI.
+
+*After the crash: local models (closing slide).* Open-weight models trail the closed frontier by
+about four months (2026 average) cite:[epoch2026gap]. On clinical diagnosis a fine-tuned
+Qwen3.5-35B -- workstation-sized -- scored 87.9% vs GPT-5.1's 89.4% cite:[munim2026ondevice]. Runs on
+hardware a hospital can own; data never leaves the building; fixed cost, no per-token meter, no
+vendor to vanish. Rudolph runs several locally (Ollama on artemis: qwen3.8, gpt-oss, gemma3,
+deepseek-r1, devstral-small-2). Note: the ~/Projects/local-LLM folder he mentioned doesn't exist;
+if it turns up, fold its context in here.
+
 === 8. Conclusions
 
 _Draft._
@@ -412,6 +424,8 @@ Shape concerns:
   last printed line as bullets reveal. On the hub, the menu prints line by line once
   `talk --outline` finishes, and the cursor parks blinking under it. Up/Down boxes the current
   entry. Relies on slidedown's `tw-done` class (set when a typewriter finishes).
+* Choosing a section flashes it twice in inverse video (terminal-menu style) before the zoom;
+  360 ms beat via --sd-hit-ms in the terminal theme (FNNDSC/slidedown#2).
 * Presenting keys: digits or Up/Down + Enter pick a section; Right advances; *Backspace* (or Esc)
   returns to the outline; `f` toggles the deck's own fullscreen. In browser fullscreen Esc is
   reserved by the browser (it exits fullscreen), so use Backspace -- especially on the tablet

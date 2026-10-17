@@ -223,6 +223,8 @@
     "#slide-28":
         --term-label: "'rudolph@artemis: ~ 07 bubble'"
     "#slide-29":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-30":
         --term-label: "'rudolph@artemis: ~ 08 conclusions'"
     ".term .sd-nexus":
         margin-top: "0.6em"
@@ -801,20 +803,42 @@
 }
 
 .slide{
+  .id{bubble-6}
+  .title{If It Pops}
+  .body{
+    .h1{If It Pops}
+    .h2{What a crash would mean -- and why hospitals are, ironically, buffered}
+    .div{.class{term}
+.typewriter{$> what-if --crash}
+      .o{Economy: a burst could cut UK GDP by .bf{2.2%} (Bank of England); a correction would ripple through a "highly leveraged, circular" sector (IMF).}
+      .o{Hospitals, ironically, are .bf{buffered}: they barely use generative AI yet.}
+      .o{Predictive AI just keeps running: 100 MB, on-prem, no frontier lab's balance sheet behind it.}
+      .o{Who gets hurt: whoever just bought into generative AI -- repricing, failed vendors, stranded integrations.}
+      .o{Science: a crash leaves cheap GPUs behind -- dark fibre after 2001, for federated compute.}
+    }
+    .div{.class{prompt} BUILD ON WHAT SURVIVES THE CRASH.}
+    .div{.class{src} Bank of England Financial Stability Report, Jul 2026 (via Crypto Briefing) · IMF GFSR, Oct 2026 · adoption: Everson et al. 2025; ASTP 2025 · implications are the speaker's argument}
+  }
+}
+
+.slide{
   .id{bubble-end}
   .title{The AI Bubble}
   .body{
     .h1{The AI Bubble}
-    .h2{What a crash would mean -- for hospitals and for science}
+    .h2{After the crash: models you can run yourself are catching up}
     .div{.class{term}
-.typewriter{$> what-if --crash}
-      .o{Economy: a burst could cut UK GDP by .bf{2.2%} (Bank of England); a correction would ripple through a "highly leveraged, circular" sector (IMF).}
-      .o{Hospitals: generative AI is where the hype -- and the vendor risk -- sits. Repricing, failed vendors, stranded integrations.}
-      .o{The small predictive models keep running: 100 MB, on-prem, no API to switch off.}
-      .o{Science: a crash leaves cheap GPUs behind -- dark fibre after 2001, for federated compute.}
+.typewriter{$> ollama list}
+      .o{.span{.class{dim} on my own machine: qwen3.8 · gpt-oss · gemma3 · deepseek-r1 · devstral-small-2}}
+      .o{.span{.class{dim} clinical diagnosis accuracy, same benchmark}}
+      .o{.span{.class{lbl} GPT-5.1 (frontier)}.span{.class{grow bar w18}.span{.class{fill} █████████████████▌}}.span{.class{pct} 89.4%}}
+      .o{.span{.class{lbl} Qwen3.5-35B, local}.span{.class{grow bar w18}.span{.class{fill} █████████████████▌}}.span{.class{pct} 87.9%}}
+      .o{Open models trail the closed frontier by about .bf{4 months} (2026 average).}
+      .o{Runs on hardware a hospital can own. The data never leaves the building.}
+      .o{A fixed cost: no per-token meter, no vendor that can vanish in a crash.}
     }
-    .div{.class{prompt} BUILD ON WHAT SURVIVES THE CRASH.}
-    .div{.class{src} Bank of England Financial Stability Report, Jul 2026 (via Crypto Briefing) · IMF GFSR, Oct 2026 · implications are the speaker's argument}
+    .div{.class{prompt} GOOD ENOUGH, LOCAL, AND YOURS.}
+    .div{.class{src} Epoch AI Data Insight, 29 May 2026 (open vs closed ECI gap) · Munim et al., arXiv 2601.03266 v2, Apr 2026 (Qwen3.5-35B fine-tuned) · speaker's own Ollama install}
   }
 }
 
