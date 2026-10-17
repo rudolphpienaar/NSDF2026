@@ -329,6 +329,11 @@ current AI cite:[consciousness2026]; the Oct 2025 "GPT-5 solved 10 Erdős proble
 published solutions cite:[techcrunch2025erdos]. Real 2026 results exist (unit distance conjecture
 disproved) with mathematicians verifying, refining and publishing cite:[techcrunch2026unitdistance,quanta2026erdos].
 Takeaway: a good new tool, priced as if it were a god.
+For Q&A, keep the two OpenAI maths episodes apart: (1) Oct 2025 -- "GPT-5 solved 10 Erdős
+problems" was literature search; the problems were listed as open on erdosproblems.com only
+because the site's maintainer hadn't seen the published solutions. (2) May 2026 -- an internal
+reasoning model disproved Erdős's 1946 unit distance conjecture, verified by mathematicians; a
+famous problem, not one of the ten, and its "autonomous solution" framing is disputed.
 
 *Earned vs lost (on the slides).* 2025, from leaked draft IPO filings: OpenAI earned $13.1B, lost
 $20.9B running the business cite:[openai2025fin]; Anthropic earned $4.6B, lost $8.1B
