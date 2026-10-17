@@ -311,8 +311,12 @@ built. Then: what would a crash mean?
   cite:[imf2026gfsr].
 * Oracle: 5-year CDS at a record 288 bp (15 Oct); S&P BBB- since July, one notch above junk
   cite:[oracle2026cds].
-* Data centres: of >=16 GW slated for 2026 in the US, ~5 GW is under construction
-  cite:[sightline2026].
+* Data centres -- CAUTION (checked 2026-10-17): Sightline's Feb 2026 forecast says >=16 GW slated
+  for 2026 with ~5 GW under construction cite:[sightline2026], but its page doesn't say US-only
+  (Bloomberg, using Sightline data, puts the US share at ~12 GW), and SemiAnalysis (Jun 2026) calls
+  the under-construction denominator "off by multiples". No reliable 2026 year-to-date delivered
+  figure is public; the only actual is Goldman Sachs' 2.2 GW delivered in Q1 2026 (secondary
+  coverage). The slide's "US 16 GW" label and "two-thirds not started" takeaway need fixing.
 * Labs: OpenAI projects ~$278B of cash burn 2026--2030 cite:[openai2026burn]; Anthropic reports a
   $65B revenue run rate, with cash-flow breakeven reportedly not before ~2028 cite:[anthropic2026]
   (weak source -- verify). Disclosure: the assistant drafting these notes is made by Anthropic;
