@@ -33,6 +33,9 @@ Advancing off the end of a section returns to the hub; Backspace (or Esc)
 returns from anywhere. In fullscreen use Backspace -- the browser keeps Esc
 for exiting fullscreen. `f` toggles the deck's own fullscreen.
 Visited sections dim on the hub (per browser tab — a fresh tab starts clean).
+To reset after a practice run: open the deck in a **new tab** (or close and reopen the
+tab). Reloading the same tab keeps the history — it lives in that tab's `sessionStorage`
+(`slidedown:visited:<path>`), by design so a mid-talk reload doesn't lose your place.
 
 ## Opening
 
