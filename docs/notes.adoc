@@ -329,7 +329,17 @@ current AI cite:[consciousness2026]; the Oct 2025 "GPT-5 solved 10 Erdős proble
 published solutions cite:[techcrunch2025erdos]. Real 2026 results exist (unit distance conjecture
 disproved) with mathematicians verifying, refining and publishing cite:[techcrunch2026unitdistance,quanta2026erdos].
 Takeaway: a good new tool, priced as if it were a god.
-For Q&A, keep the two OpenAI maths episodes apart: (1) Oct 2025 -- "GPT-5 solved 10 Erdős
+*The maths claim on the slide is Navier--Stokes (Sep 2026).* OpenAI announced an AI-produced proof
+of finite-time blow-up for 3D Navier--Stokes -- a $1M Millennium Prize problem -- from >=10,000
+agents over ~88 hours, with a 166-page paper and a Lean formalisation cite:[openai2026ns]. Look
+deeper: Buckmaster and Alpöge had worked the same gap for a year using LLMs as tools; OpenAI's run
+was prompted by rumours of their result and announced ~12 h after they went public
+cite:[quanta2026ns,axios2026ns]; a 6 Oct paper found the Lean and written proofs disagree; Clay
+lists the problem as active; 28 Fields Medalists warned against treating open problems as
+benchmarks cite:[wiki2026nscontroversy]. Disclosure: Alpöge is an Anthropic employee (collaboration
+described as personal). The Erdős episodes below stay as background.
+
+For Q&A, the earlier OpenAI maths episodes: (1) Oct 2025 -- "GPT-5 solved 10 Erdős
 problems" was literature search; the problems were listed as open on erdosproblems.com only
 because the site's maintainer hadn't seen the published solutions. (2) May 2026 -- an internal
 reasoning model disproved Erdős's 1946 unit distance conjecture, verified by mathematicians; a

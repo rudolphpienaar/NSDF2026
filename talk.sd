@@ -728,11 +728,11 @@
       .o{.bf{Claim:} AGI is close -- "we know how to build AGI" (Altman); "a country of geniuses in a datacenter" (Amodei).}
       .o{.bf{Evidence:} frontier models trail radiologists on hard images and finish 46% of real EHR tasks.}
       .o{.bf{Claim:} the machines are, or will become, conscious. .bf{Evidence:} none -- consciousness science leans cautiously towards no for current AI.}
-      .o{.bf{Claim:} they solve what humans can't. Oct 2025: "GPT-5 solved 10 Erdős problems" -- it had found published solutions. "This is embarrassing" (Hassabis).}
-      .o{Real 2026 results exist -- with mathematicians checking, refining, publishing. Tao: "lowest hanging fruit." A powerful new .bf{tool}.}
+      .o{.bf{Claim:} they solve what humans can't. Sep 2026: OpenAI says its AI proved Navier-Stokes blow-up -- a $1M Millennium Prize problem.}
+      .o{.bf{Look deeper:} two mathematicians had worked the same gap for a year, LLMs as tools. Formal proof and paper disagree. Clay still lists it .bf{active}.}
     }
     .div{.class{prompt} A GOOD NEW TOOL, PRICED AS IF IT WERE A GOD.}
-    .div{.class{src} Altman, "Reflections", Jan 2025 · Amodei, "Machines of Loving Grace", Oct 2024 · Datta et al. / CRASH Lab RadLE · Liu et al., PhysicianBench 2026 · arXiv 2605.06965 (2026) · TechCrunch, 19 Oct 2025 · TechCrunch, 20 May 2026 · Quanta, Aug 2026}
+    .div{.class{src} Altman, "Reflections", Jan 2025 · Amodei, "Machines of Loving Grace", Oct 2024 · CRASH Lab RadLE 2.0 · Liu et al., PhysicianBench 2026 · arXiv 2605.06965 (2026) · Navier-Stokes: OpenAI, Quanta, Axios, 8 Sep 2026; arXiv discrepancy paper, 6 Oct 2026; Clay Institute status Oct 2026}
   }
 }
 
