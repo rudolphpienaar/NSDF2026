@@ -168,6 +168,12 @@
         --w: "20ch"
     ".grow.w21":
         --w: "21ch"
+    ".barl":
+        color: "#f14c4c"
+    ".pctl":
+        color: "#f14c4c"
+        font-weight: "bold"
+        margin-left: "0.6ch"
     "#slide-5":
         --term-label: "'rudolph@artemis: ~ 01 state'"
     "#slide-6":
@@ -211,6 +217,10 @@
     "#slide-25":
         --term-label: "'rudolph@artemis: ~ 07 bubble'"
     "#slide-26":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-27":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-28":
         --term-label: "'rudolph@artemis: ~ 08 conclusions'"
     ".term .sd-nexus":
         margin-top: "0.6em"
@@ -709,6 +719,45 @@
 
 .slide{
   .id{bubble-2}
+  .title{What the Money Is Betting On}
+  .body{
+    .h1{What the Money Is Betting On}
+    .h2{The trillion-dollar valuations rest on three claims}
+    .div{.class{term}
+.typewriter{$> cat valuation_premise.txt}
+      .o{.bf{Claim:} AGI is close -- "we know how to build AGI" (Altman); "a country of geniuses in a datacenter" (Amodei).}
+      .o{.bf{Evidence:} frontier models trail radiologists on hard images and finish 46% of real EHR tasks.}
+      .o{.bf{Claim:} the machines are, or will become, conscious. .bf{Evidence:} none -- consciousness science leans cautiously towards no for current AI.}
+      .o{.bf{Claim:} they solve what humans can't. Oct 2025: "GPT-5 solved 10 Erdős problems" -- it had found published solutions. "This is embarrassing" (Hassabis).}
+      .o{Real 2026 results exist -- with mathematicians checking, refining, publishing. Tao: "lowest hanging fruit." A powerful new .bf{tool}.}
+    }
+    .div{.class{prompt} A GOOD NEW TOOL, PRICED AS IF IT WERE A GOD.}
+    .div{.class{src} Altman, "Reflections", Jan 2025 · Amodei, "Machines of Loving Grace", Oct 2024 · Datta et al. / CRASH Lab RadLE · Liu et al., PhysicianBench 2026 · arXiv 2605.06965 (2026) · TechCrunch, 19 Oct 2025 · TechCrunch, 20 May 2026 · Quanta, Aug 2026}
+  }
+}
+
+.slide{
+  .id{bubble-3}
+  .title{Earned vs Lost}
+  .body{
+    .h1{Earned vs Lost}
+    .h2{OpenAI and Anthropic: revenue vs operating loss, 2025}
+    .div{.class{term}
+.typewriter{$> stats --labs --year=2025}
+      .o{.span{.class{dim} 2025, $ billions -- what each company took in vs what it lost running the business}}
+      .o{.span{.class{lbl} OpenAI earned}.span{.class{grow bar w13}.span{.class{fill} ████████████▌}}.span{.class{pct} $13.1B}}
+      .o{.span{.class{lbl} OpenAI lost}.span{.class{grow barl w20}.span{.class{fill} ████████████████████}}.span{.class{pctl} $20.9B}}
+      .o{.span{.class{lbl} Anthropic earned}.span{.class{grow bar w4}.span{.class{fill} ████}}.span{.class{pct} $4.6B}}
+      .o{.span{.class{lbl} Anthropic lost}.span{.class{grow barl w8}.span{.class{fill} ███████▌}}.span{.class{pctl} $8.1B}}
+      .o{Headline net losses were bigger ($38.5B, $42B) -- mostly one-off accounting charges, left out here.}
+    }
+    .div{.class{prompt} BOTH LOSE MORE THAN THEY EARN.}
+    .div{.class{src} Leaked draft IPO filings: OpenAI via Reuters/Yahoo Finance; Anthropic via Reuters/Fortune, 29 Sep 2026 · not yet public filings}
+  }
+}
+
+.slide{
+  .id{bubble-4}
   .title{The Gap, in Two Charts}
   .body{
     .h1{The Gap, in Two Charts}

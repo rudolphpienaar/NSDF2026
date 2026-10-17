@@ -320,6 +320,21 @@ built. Then: what would a crash mean?
 * Bank of England (Jul): a burst could cut UK GDP by 2.2% cite:[boe2026fsr] (secondary source).
 * Ed Zitron has argued this for two years cite:[zitron].
 
+*The premise behind the valuations (on the slides).* Three claims carry the money: AGI is close
+("we know how to build AGI" cite:[altman2025reflections]; "a country of geniuses in a datacenter"
+cite:[amodei2024grace]); the machines are or will become conscious; they solve what humans can't.
+Evidence: frontier models still trail radiologists on hard images cite:[radle2_2026] and finish 46%
+of real EHR tasks cite:[liu2026physicianbench]; consciousness science leans cautiously negative on
+current AI cite:[consciousness2026]; the Oct 2025 "GPT-5 solved 10 Erdős problems" claim was found
+published solutions cite:[techcrunch2025erdos]. Real 2026 results exist (unit distance conjecture
+disproved) with mathematicians verifying, refining and publishing cite:[techcrunch2026unitdistance,quanta2026erdos].
+Takeaway: a good new tool, priced as if it were a god.
+
+*Earned vs lost (on the slides).* 2025, from leaked draft IPO filings: OpenAI earned $13.1B, lost
+$20.9B running the business cite:[openai2025fin]; Anthropic earned $4.6B, lost $8.1B
+cite:[anthropic2025fin]. Operating losses used deliberately -- headline net losses ($38.5B, $42B)
+are mostly one-off accounting charges.
+
 *What a crash means for this talk (the argument).* The hype and the vendor risk sit in generative
 AI; the predictive, local models that actually run in hospitals don't depend on a frontier lab's
 balance sheet. A crash would likely leave cheap GPUs behind -- like dark fibre after 2001 -- which
