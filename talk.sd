@@ -221,6 +221,8 @@
     "#slide-27":
         --term-label: "'rudolph@artemis: ~ 07 bubble'"
     "#slide-28":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-29":
         --term-label: "'rudolph@artemis: ~ 08 conclusions'"
     ".term .sd-nexus":
         margin-top: "0.6em"
@@ -758,21 +760,43 @@
 
 .slide{
   .id{bubble-4}
+  .title{The Subsidy}
+  .body{
+    .h1{The Subsidy}
+    .h2{What the flat monthly plans hide: per-token vs flat, my own bills}
+    .div{.class{term}
+.typewriter{$> billing --compare}
+      .o{.span{.class{dim} my own bills, similar coding workload}}
+      .o{.span{.class{lbl} per token, 1 week}.span{.class{grow barl w20}.span{.class{fill} ████████████████████}}.span{.class{pctl} $3,500}}
+      .o{.span{.class{lbl} flat plan, 1 month}.span{.class{grow bar w1}.span{.class{fill} ▌}}.span{.class{pct} $100}}
+      .o{Per month that's roughly .bf{$15,000 vs $100} -- about 150x.}
+      .o{Altman, Jan 2025: losing money on the $200 ChatGPT Pro plan -- "people use it much more than we expected."}
+      .o{Anthropic, Jul 2025: weekly caps on Claude Code for users running it "continuously in the background, 24/7."}
+    }
+    .div{.class{prompt} TODAY'S FLAT PRICES ARE A SUBSIDY. BUDGETS BUILT ON THEM WON'T LAST.}
+    .div{.class{src} Speaker's own billing: BCH enterprise Codex (per token) vs personal Claude Max (flat) -- different vendors, illustrative · Altman on X, 6 Jan 2025 (via Fortune) · Anthropic via TechCrunch, 28 Jul 2025}
+  }
+}
+
+.slide{
+  .id{bubble-5}
   .title{The Gap, in Two Charts}
   .body{
     .h1{The Gap, in Two Charts}
-    .h2{Revenue needed vs forecast, and data centres announced vs being built}
+    .h2{Revenue needed vs forecast -- and data centres delivered vs scheduled}
     .div{.class{term}
 .typewriter{$> stats --ai-economics --to=2030}
       .o{.span{.class{dim} cumulative AI data-centre revenue to 2030, $ trillions}}
       .o{.span{.class{lbl} needed to pay back}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} $8.5T}}
       .o{.span{.class{lbl} forecast}.span{.class{grow bar w8}.span{.class{fill} ████████}}.span{.class{pct} $3.6T}}
-      .o{.span{.class{dim} US data-centre capacity slated to open in 2026, gigawatts}}
-      .o{.span{.class{lbl} announced}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} 16 GW}}
-      .o{.span{.class{lbl} under construction}.span{.class{grow bar w6}.span{.class{fill} ██████}}.span{.class{pct} 5 GW}}
+      .o{.span{.class{dim} US data-centre capacity added per year, gigawatts}}
+      .o{.span{.class{lbl} 2024 delivered}.span{.class{grow bar w9}.span{.class{fill} █████████}}.span{.class{pct} 6.4 GW}}
+      .o{.span{.class{lbl} 2025 delivered}.span{.class{grow bar w13}.span{.class{fill} ████████████▌}}.span{.class{pct} 8.5 GW}}
+      .o{.span{.class{lbl} 2026 scheduled}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} 13.6 GW}}
+      .o{.span{.class{lbl} 2026 delivered, Q1}.span{.class{grow bar w3}.span{.class{fill} ███}}.span{.class{pct} 2.2 GW}}
     }
-    .div{.class{prompt} THE REVENUE ISN'T THERE. TWO-THIRDS OF THE BUILDINGS AREN'T STARTED.}
-    .div{.class{src} Gartner, 14 Oct 2026 (via The Register) · Sightline Climate Data Center Outlook, Mar 2026 (via Utility Dive)}
+    .div{.class{prompt} THE REVENUE ISN'T THERE. THE BUILD-OUT RUNS BEHIND ITS OWN PLAN.}
+    .div{.class{src} Gartner, 14 Oct 2026 (via The Register) · Goldman Sachs Research, 2026 (via secondary coverage): realized additions 2024-25, 2026 schedule, Q1 2026 actual; no full-year 2026 figure published yet}
   }
 }
 

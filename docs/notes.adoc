@@ -311,12 +311,12 @@ built. Then: what would a crash mean?
   cite:[imf2026gfsr].
 * Oracle: 5-year CDS at a record 288 bp (15 Oct); S&P BBB- since July, one notch above junk
   cite:[oracle2026cds].
-* Data centres -- CAUTION (checked 2026-10-17): Sightline's Feb 2026 forecast says >=16 GW slated
+* Data centres -- background (checked 2026-10-17; slide now uses Goldman, see below): Sightline's Feb 2026 forecast says >=16 GW slated
   for 2026 with ~5 GW under construction cite:[sightline2026], but its page doesn't say US-only
   (Bloomberg, using Sightline data, puts the US share at ~12 GW), and SemiAnalysis (Jun 2026) calls
   the under-construction denominator "off by multiples". No reliable 2026 year-to-date delivered
   figure is public; the only actual is Goldman Sachs' 2.2 GW delivered in Q1 2026 (secondary
-  coverage). The slide's "US 16 GW" label and "two-thirds not started" takeaway need fixing.
+  coverage).
 * Labs: OpenAI projects ~$278B of cash burn 2026--2030 cite:[openai2026burn]; Anthropic reports a
   $65B revenue run rate, with cash-flow breakeven reportedly not before ~2028 cite:[anthropic2026]
   (weak source -- verify). Disclosure: the assistant drafting these notes is made by Anthropic;
@@ -353,6 +353,19 @@ famous problem, not one of the ten, and its "autonomous solution" framing is dis
 $20.9B running the business cite:[openai2025fin]; Anthropic earned $4.6B, lost $8.1B
 cite:[anthropic2025fin]. Operating losses used deliberately -- headline net losses ($38.5B, $42B)
 are mostly one-off accounting charges.
+
+*The subsidy (on the slides).* Rudolph's own bills: at BCH, enterprise Codex billed per token came
+to ~$3,500 in a week of moderate use; his personal Claude Max plan, similar load, is $100 a month --
+roughly $15,000 vs $100 per month, ~150x. Different vendors, so illustrative rather than
+controlled. The vendors say the same: Altman said OpenAI loses money on the $200 Pro plan
+cite:[altman2025pro]; Anthropic capped users running Claude Code 24/7 cite:[anthropic2025limits].
+Disclosure: the flat plan in the example is Anthropic's. Point for hospitals: budgets built on
+today's flat prices are built on a subsidy.
+
+*Data centres delivered vs scheduled (on the slides).* Replaced the Sightline chart (geography
+unclear, denominator disputed cite:[semianalysis2026dc]) with Goldman Sachs: 6.4 GW delivered 2024,
+8.5 GW 2025, 13.6 GW scheduled 2026, 2.2 GW delivered in Q1 2026 cite:[goldman2026dc]. No full-year
+2026 delivered figure is published yet; refresh if one appears before the talk.
 
 *What a crash means for this talk (the argument).* The hype and the vendor risk sit in generative
 AI; the predictive, local models that actually run in hospitals don't depend on a frontier lab's

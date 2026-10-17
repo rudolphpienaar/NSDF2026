@@ -26,8 +26,8 @@ cd talk && python3 -m http.server 8000
 | 3 | Whatido — ChRIS, HARBOR, the hospital/cloud boundary |
 | 4 | Outline — the nexus hub. Press 1–8, arrows + Enter, or click |
 | 5–22 | Sections 1–6, three slides each: the point, the evidence, a closing slide |
-| 23–27 | Section 7, The AI Bubble: facts, the premise, earned vs lost, the gap, what a crash means |
-| 28 | Section 8, Conclusions |
+| 23–28 | Section 7, The AI Bubble: facts, the premise, earned vs lost, the subsidy, the gap, what a crash means |
+| 29 | Section 8, Conclusions |
 
 Advancing off the end of a section returns to the hub; Backspace (or Esc)
 returns from anywhere. In fullscreen use Backspace -- the browser keeps Esc
