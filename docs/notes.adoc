@@ -377,6 +377,15 @@ crash."
 AI (31.5% EHR-integrated in 2024 cite:[everson2025]) while predictive AI just keeps running; the
 exposed ones are whoever just bought into generative AI.
 
+*Cheap GPUs after a crash? (Q&A, checked 2026-10-17).* Plausible but not yet: H100 rental prices
+are rising again in late 2026 and used H100s sell for ~$14k (vendor/aggregator data). A crash could
+flood the market -- GPUs back a lot of neocloud debt, and lenders would liquidate -- as with dark
+fibre after 2001 and used GPUs after the 2022 crypto collapse. The catch: data-centre GPUs (SXM,
+Blackwell) come in multi-kilowatt servers and liquid-cooled racks, not plug-in cards. Cheap GPUs
+still need power, cooling and operations -- infrastructure most hospitals and labs lack, which
+favours shared regional/national facilities (an NSDF-shaped answer). PCIe-class cards (A100/H100
+PCIe, L40S) are the ones a lab can actually drop into a server.
+
 *After the crash: local models (closing slide).* Built on Rudolph's own study
 cite:[pienaar2026localagents] (unpublished, arXiv in preparation; ~/Projects/local-LLM). On a
 bounded task -- fixing a seven-bug Python package under hidden grading -- qwen3.6:27b at 4-bit with
