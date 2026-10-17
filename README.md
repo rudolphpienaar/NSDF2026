@@ -16,7 +16,7 @@ The deck is a hub-and-spoke "nexus": an outline (slide 4) from which sections ar
 
 | Key | Action |
 |---|---|
-| `1`–`7`, or Up/Down + Enter, or click | open a section from the outline |
+| `1`–`8`, or Up/Down + Enter, or click | open a section from the outline |
 | Right / Left | next / previous (reveals bullets one at a time) |
 | Backspace (or Esc) | back to the outline from anywhere in a section |
 | `f` | toggle the deck's own fullscreen |

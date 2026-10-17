@@ -205,7 +205,13 @@
     "#slide-22":
         --term-label: "'rudolph@artemis: ~ 06 what can be done'"
     "#slide-23":
-        --term-label: "'rudolph@artemis: ~ 07 conclusions'"
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-24":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-25":
+        --term-label: "'rudolph@artemis: ~ 07 bubble'"
+    "#slide-26":
+        --term-label: "'rudolph@artemis: ~ 08 conclusions'"
     ".term .sd-nexus":
         margin-top: "0.6em"
     ".term .sd-nexus > div":
@@ -381,6 +387,7 @@
       .div{.jump{.target{governance} Governance}}
       .div{.jump{.target{infrastructure} It's All About the Infrastructure}}
       .div{.jump{.target{what-next} What Can Be Done?}}
+      .div{.jump{.target{bubble} The AI Bubble}}
       .div{.jump{.target{conclusions} Conclusions}}
     }
     }
@@ -679,6 +686,62 @@
       .o{The hospital side brings the data and the questions.}
     }
     .div{.class{prompt} THE HOSPITALS LEAST ABLE TO COMPUTE NEED THIS MOST.}
+  }
+}
+
+.slide{
+  .id{bubble}
+  .title{The AI Bubble}
+  .body{
+    .h1{The AI Bubble}
+    .h2{What tech conferences rarely say: the numbers don't add up}
+    .div{.class{term}
+.typewriter{$> cat ai_economics.txt}
+      .o{Gartner, 14 Oct: AI data centres need .bf{$8.5T} of revenue by 2030 to pay back; forecast is .bf{$3.6T}. Over .bf{80%} of neoclouds gone by 2030.}
+      .o{IMF, 13 Oct: 14 "circular" AI deals -- ~$950B of equity and debt in exchange for .bf{$1.4T} of promised future revenue.}
+      .o{Oracle: credit insurance at a record high (15 Oct); rated one notch above junk.}
+      .o{OpenAI projects ~.bf{$278B} of cash burn 2026--2030. Anthropic: cash-flow breakeven not before ~2028 (reported).}
+      .o{Ed Zitron has made this case for two years. This week Gartner caught up.}
+    }
+    .div{.class{src} Gartner via The Register, 14 Oct 2026 · IMF GFSR via TNW, 13 Oct 2026 · Oracle CDS: S&P/LSEG data via Securitas, 15 Oct 2026; S&P rating Jul 2026 · OpenAI: FT via Reuters, Sep 2026 · Anthropic: secondary reporting · Ed Zitron, Where's Your Ed At}
+  }
+}
+
+.slide{
+  .id{bubble-2}
+  .title{The Gap, in Two Charts}
+  .body{
+    .h1{The Gap, in Two Charts}
+    .h2{Revenue needed vs forecast, and data centres announced vs being built}
+    .div{.class{term}
+.typewriter{$> stats --ai-economics --to=2030}
+      .o{.span{.class{dim} cumulative AI data-centre revenue to 2030, $ trillions}}
+      .o{.span{.class{lbl} needed to pay back}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} $8.5T}}
+      .o{.span{.class{lbl} forecast}.span{.class{grow bar w8}.span{.class{fill} ████████}}.span{.class{pct} $3.6T}}
+      .o{.span{.class{dim} US data-centre capacity slated to open in 2026, gigawatts}}
+      .o{.span{.class{lbl} announced}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} 16 GW}}
+      .o{.span{.class{lbl} under construction}.span{.class{grow bar w6}.span{.class{fill} ██████}}.span{.class{pct} 5 GW}}
+    }
+    .div{.class{prompt} THE REVENUE ISN'T THERE. TWO-THIRDS OF THE BUILDINGS AREN'T STARTED.}
+    .div{.class{src} Gartner, 14 Oct 2026 (via The Register) · Sightline Climate Data Center Outlook, Mar 2026 (via Utility Dive)}
+  }
+}
+
+.slide{
+  .id{bubble-end}
+  .title{The AI Bubble}
+  .body{
+    .h1{The AI Bubble}
+    .h2{What a crash would mean -- for hospitals and for science}
+    .div{.class{term}
+.typewriter{$> what-if --crash}
+      .o{Economy: a burst could cut UK GDP by .bf{2.2%} (Bank of England); a correction would ripple through a "highly leveraged, circular" sector (IMF).}
+      .o{Hospitals: generative AI is where the hype -- and the vendor risk -- sits. Repricing, failed vendors, stranded integrations.}
+      .o{The small predictive models keep running: 100 MB, on-prem, no API to switch off.}
+      .o{Science: a crash leaves cheap GPUs behind -- dark fibre after 2001, for federated compute.}
+    }
+    .div{.class{prompt} BUILD ON WHAT SURVIVES THE CRASH.}
+    .div{.class{src} Bank of England Financial Stability Report, Jul 2026 (via Crypto Briefing) · IMF GFSR, Oct 2026 · implications are the speaker's argument}
   }
 }
 

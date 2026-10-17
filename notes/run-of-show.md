@@ -24,9 +24,9 @@ cd talk && python3 -m http.server 8000
 | 1 | Boot — title, venue |
 | 2 | Whoami — roles, then credentials. 7 reveals |
 | 3 | Whatido — ChRIS, HARBOR, the hospital/cloud boundary |
-| 4 | Outline — the nexus hub. Press 1–7, arrows + Enter, or click |
-| 5–22 | Sections 1–6, three slides each: the point, the evidence, a closing slide |
-| 23 | Section 7, Conclusions |
+| 4 | Outline — the nexus hub. Press 1–8, arrows + Enter, or click |
+| 5–25 | Sections 1–7, three slides each: the point, the evidence, a closing slide |
+| 26 | Section 8, Conclusions |
 
 Advancing off the end of a section returns to the hub; Backspace (or Esc)
 returns from anywhere. In fullscreen use Backspace -- the browser keeps Esc

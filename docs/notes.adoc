@@ -294,7 +294,39 @@ _Claude's draft for Rudolph to cut or replace._
   Bring the standards (Musen's talk), the networking (Internet2) and the federation tooling. The
   hospital side brings the data and the clinical questions.
 
-=== 7. Conclusions
+=== 7. The AI Bubble
+
+*Rudolph's point.* Tech conferences rarely mention it, but more analysts now say the numbers don't
+make sense: the frontier labs lose money at scale, the financing is circular, neoclouds are
+fragile, Oracle is over-leveraged, and the build-out depends on data centres that aren't being
+built. Then: what would a crash mean?
+
+*Evidence (Oct 2026).*
+
+* Gartner (14 Oct): AI data-centre owners need ~$8.5T of revenue by 2030 to earn a 12% return;
+  forecast ~$3.6T; >80% of neoclouds cease independent operation by 2030; >$3.5T of planned spend
+  exposed to impairment cite:[gartner2026neocloud]. Neocloud stocks fell 9--15% on the day.
+* IMF GFSR (13 Oct): 14 disclosed AI deals -- ~$300B equity + ~$650B debt for ~$1.4T of promised
+  revenue; warns of a correction rippling through a "highly leveraged, circular" sector
+  cite:[imf2026gfsr].
+* Oracle: 5-year CDS at a record 288 bp (15 Oct); S&P BBB- since July, one notch above junk
+  cite:[oracle2026cds].
+* Data centres: of >=16 GW slated for 2026 in the US, ~5 GW is under construction
+  cite:[sightline2026].
+* Labs: OpenAI projects ~$278B of cash burn 2026--2030 cite:[openai2026burn]; Anthropic reports a
+  $65B revenue run rate, with cash-flow breakeven reportedly not before ~2028 cite:[anthropic2026]
+  (weak source -- verify). Disclosure: the assistant drafting these notes is made by Anthropic;
+  both labs are treated with the same kind of sources.
+* Bank of England (Jul): a burst could cut UK GDP by 2.2% cite:[boe2026fsr] (secondary source).
+* Ed Zitron has argued this for two years cite:[zitron].
+
+*What a crash means for this talk (the argument).* The hype and the vendor risk sit in generative
+AI; the predictive, local models that actually run in hospitals don't depend on a frontier lab's
+balance sheet. A crash would likely leave cheap GPUs behind -- like dark fibre after 2001 -- which
+is an opportunity for federated, compute-to-data infrastructure. "Build on what survives the
+crash."
+
+=== 8. Conclusions
 
 _Draft._
 
@@ -318,7 +350,7 @@ stashes and unreachable commits, and GitHub code search. Rebuilt from memory her
 
 Shape concerns:
 
-* Seven spokes in ten minutes is ~80 s each, before the intro. The hub makes skipping cheap.
+* Eight spokes in ten minutes is ~70 s each, before the intro. The hub makes skipping cheap.
 * Sections 1 and 2 now argue one thing (what's deployed is predictive; "AI" has come to mean
   LLMs). Section 5 is the turn the others build to, not a peer.
 
