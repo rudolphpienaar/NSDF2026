@@ -377,13 +377,21 @@ crash."
 AI (31.5% EHR-integrated in 2024 cite:[everson2025]) while predictive AI just keeps running; the
 exposed ones are whoever just bought into generative AI.
 
-*After the crash: local models (closing slide).* Open-weight models trail the closed frontier by
-about four months (2026 average) cite:[epoch2026gap]. On clinical diagnosis a fine-tuned
-Qwen3.5-35B -- workstation-sized -- scored 87.9% vs GPT-5.1's 89.4% cite:[munim2026ondevice]. Runs on
-hardware a hospital can own; data never leaves the building; fixed cost, no per-token meter, no
-vendor to vanish. Rudolph runs several locally (Ollama on artemis: qwen3.8, gpt-oss, gemma3,
-deepseek-r1, devstral-small-2). Note: the ~/Projects/local-LLM folder he mentioned doesn't exist;
-if it turns up, fold its context in here.
+*After the crash: local models (closing slide).* Built on Rudolph's own study
+cite:[pienaar2026localagents] (unpublished, arXiv in preparation; ~/Projects/local-LLM). On a
+bounded task -- fixing a seven-bug Python package under hidden grading -- qwen3.6:27b at 4-bit with
+a 128K context solved 30 of 30 trials on one RTX A6000 and 15 of 15 on a 36 GB Mac Studio, the same
+success as hosted Claude Opus 5.5 and GPT-6.1-sol (5 of 5 each), but 6--7x slower: medians 74 s and
+94 s hosted vs 9 min (A6000) and 11 min (Mac), shown for the Claude Code harness. The catch, in
+Rudolph's words: what he could do on Claude four months ago is still far ahead of what runs on his
+hardware. Epoch's "four months behind" cite:[epoch2026gap] compares data-centre-scale open models
+(Kimi K2.6, GLM-5.1, Qwen 3.6 Plus) at full precision; on private benchmarks Epoch puts the gap at
+8--10 months. On a workstation the models are smaller and the context windows smaller (64--128K,
+bounded by GPU memory for the KV cache), and long-horizon, large-context work is where the frontier
+still wins. Closing that gap means enterprise GPUs -- an infrastructure question, which is the
+talk's thesis again. Background: on clinical diagnosis a fine-tuned Qwen3.5-35B scored 87.9% vs
+GPT-5.1's 89.4% cite:[munim2026ondevice]. Disclosure: Claude Opus 5.5, one hosted baseline, is the
+model drafting these notes.
 
 === 8. Conclusions
 

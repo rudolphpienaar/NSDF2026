@@ -826,19 +826,20 @@
   .title{The AI Bubble}
   .body{
     .h1{The AI Bubble}
-    .h2{After the crash: models you can run yourself are catching up}
+    .h2{After the crash: models you can run yourself are catching up -- with a catch}
     .div{.class{term}
-.typewriter{$> ollama list}
-      .o{.span{.class{dim} on my own machine: qwen3.8 · gpt-oss · gemma3 · deepseek-r1 · devstral-small-2}}
-      .o{.span{.class{dim} clinical diagnosis accuracy, same benchmark}}
-      .o{.span{.class{lbl} GPT-5.1 (frontier)}.span{.class{grow bar w18}.span{.class{fill} █████████████████▌}}.span{.class{pct} 89.4%}}
-      .o{.span{.class{lbl} Qwen3.5-35B, local}.span{.class{grow bar w18}.span{.class{fill} █████████████████▌}}.span{.class{pct} 87.9%}}
-      .o{Open models trail the closed frontier by about .bf{4 months} (2026 average).}
-      .o{Runs on hardware a hospital can own. The data never leaves the building.}
-      .o{A fixed cost: no per-token meter, no vendor that can vanish in a crash.}
+.typewriter{$> bench --task=7-bug-repair}
+      .o{.span{.class{dim} my own study: median time to fully fix a 7-bug Python package (every setup below solved it)}}
+      .o{.span{.class{lbl} Opus 5.5, hosted}.span{.class{grow bar w2}.span{.class{fill} ██}}.span{.class{pct} 74 s}}
+      .o{.span{.class{lbl} GPT-6.1, hosted}.span{.class{grow bar w3}.span{.class{fill} ██▌}}.span{.class{pct} 94 s}}
+      .o{.span{.class{lbl} local 27B, A6000}.span{.class{grow bar w16}.span{.class{fill} ████████████████}}.span{.class{pct} 9 min}}
+      .o{.span{.class{lbl} local 27B, Mac}.span{.class{grow bar w20}.span{.class{fill} ████████████████████}}.span{.class{pct} 11 min}}
+      .o{Local matched hosted on a bounded task -- .bf{30 of 30} -- just 6-7x slower.}
+      .o{The "4 months behind" figure is for open models on data-centre GPUs. On a workstation: smaller models, .bf{smaller context windows}.}
+      .o{Closing that gap takes enterprise GPUs -- .bf{infrastructure} most hospitals don't have.}
     }
-    .div{.class{prompt} GOOD ENOUGH, LOCAL, AND YOURS.}
-    .div{.class{src} Epoch AI Data Insight, 29 May 2026 (open vs closed ECI gap) · Munim et al., arXiv 2601.03266 v2, Apr 2026 (Qwen3.5-35B fine-tuned) · speaker's own Ollama install}
+    .div{.class{prompt} GOOD ENOUGH FOR BOUNDED WORK. THE REST IS AN INFRASTRUCTURE PROBLEM.}
+    .div{.class{src} Pienaar, "Local Language Models for Terminal Coding Agents in a Medium-Size Laboratory", unpublished (arXiv, in prep.), Oct 2026: 234 trials; qwen3.6:27b, 4-bit, 128K context · Epoch AI, 29 May 2026}
   }
 }
 
