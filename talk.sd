@@ -363,10 +363,10 @@
       .o{Computational Scientist}
       .o{Systems Architect}
       .o{Brain Image Researcher}
-      .o{.typewriter{$> info --educational}}
+      .o{.typewriter{$> info --professional}}
       .o{Assistant Professor of Radiology, Harvard Medical School}
-      .o{PhD Biomedical Engineering -- BEng / MEng Electrical Engineering}
-      .o{Thesis: reinforcement learning on dynamic physical systems}
+      .o{Technical Director, Fetal-Neonatal Neuroimaging & Developmental Science Center (FNNDSC), Boston Children's}
+      .o{PhD Biomedical Engineering (bio-control-model reinforcement learning) -- BEng / MEng}
     }
   }
 }
