@@ -37,8 +37,8 @@ cd talk && python3 -m http.server 8000      # then open http://localhost:8000
 ```
 
 Or with pip: `pip install -e path/to/slidedown`, then run `slidedown` as above. The deck needs
-slidedown with FNNDSC/slidedown#1 and #2 (deck CSS overrides the theme, console highlighting,
-nexus return keys).
+slidedown `main` at or after the FNNDSC/slidedown#2 merge (deck CSS overrides the theme, console
+highlighting, nexus return keys).
 
 ## Deployment
 
