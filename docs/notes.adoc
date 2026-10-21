@@ -39,22 +39,125 @@ Candidate quotable lines:
 == Position in the session
 
 The other talks mostly bring capability: a network (Hart, Internet2), a new AI method for small-cohort
-multiomics (Alter), federated learning tooling (Xu, NVIDIA -- likely FLARE), an NSDF node (Kirby,
-AURORA). Bremer's and Nikolich's topics aren't known in detail. This talk is the reality check from the
-receiving end: the hospital can't absorb any of that yet. Probably the only talk saying "the
-bottleneck isn't the technology."
+multiomics (Alter), federated learning tooling (Xu, NVIDIA FLARE), an NSF PCL self-driving materials lab (Kirby, AURORA).
+Bremer (LLNL) is on distributed data across the NNSA complex; Nikolich (Anita) speaks before Xu and, per Xu's notes, makes a
+"trust but verify" point. This talk is the reality check from the receiving end: the hospital can't
+absorb any of that yet. Probably the only talk saying "the bottleneck isn't the technology."
+
+=== What the other speakers actually say (read from their uploaded decks, 2026-10-18)
+
+*Xu, "FedReady: Bounded Agents for Federation Formation"* cite:[xu2026fedready]. FLARE confirmed.
+His thesis: federated _training_ is solved; the bottleneck has moved upstream to data readiness.
+Who even holds the data, and 39 sites encoding the same label eight different ways, each needing its
+own local expert. His fix: "send an agent, not an engineer". A planning agent at the server, an
+LLM coding agent at each site that writes the site's translation code, and a vision model inside each
+site that checks the output. Agents leave once a contract is agreed, then it's ordinary FLARE.
+Results on 39 _public_ retinal datasets (disc Dice 0.94, cup 0.77, glaucoma 0.88, detection recall
+0.93). He calls it a research proof of concept: "bounded disclosure ... not a mathematical privacy
+guarantee".
+
+* _Agreement_: "the hard part was never the model" is his slide 2 too. Good to say so out loud.
+* _Riff, section 3_: every FedReady site hosts a coding agent and a vision model. That's a GPU and a
+  scheduler inside the hospital walls -- exactly what section 3 says most hospitals don't have.
+* _Riff, section 4_: the agent is generative AI writing and running code against patient data. That is
+  the case hospital governance was _built_ to stop, so a real hospital would send it to the slowest
+  lane. His 39 sites are public datasets; the first real hospital site is where governance starts.
+  (Say this as the precondition, not a dig: his work is the right shape.)
+
+*Hart, "Internet2 and the Future of Federated Autonomous Science"* cite:[hart2026internet2]. Three
+themes: connectivity (a 138 Tbps AI research network, 3,400 km, five data centres; 800 Gbps backbone
+by 2028; "close the access gap to scientific resources"), trust (fabricated identities; agentic AI
+needs dynamic identity; NIH requiring identity proofing for controlled-access data repositories by
+January 2027; InCommon / REFEDS assurance; OpenID), and quantum readiness (PQC demo, harvest-now-
+decrypt-later, QKD on the highest-value paths).
+
+* _Correction_: the deck's "Networks to hospitals (Hart)" isn't what he says -- his talk isn't about
+  hospital connectivity. Re-point it.
+* _Riff, section 3_: bandwidth isn't the hospital's constraint, because the data can't move anyway.
+  A 138 Tbps backbone doesn't help a site with no compute at the end of it -- section 6's "move the
+  computation".
+* _Riff, governance and trust_: his trust layer is federated identity for people and agents. Clinical
+  data is the extreme case of his "long-lived sensitive data": a genome or a fetal MRI stays sensitive
+  for the patient's lifetime. His harvest-now-decrypt-later point is one more reason hospitals keep
+  data in place.
+* _Riff, section 6_: his "access gap" is the same divide as the critical-access hospitals cite:[astp2025].
+
+*Bremer, "Distributed Discovery, Design, Manufacturing, and Deployment"* cite:[bremer2026llnl].
+LLNL / NNSA. The weapons complex is a distributed digital twin across eight sites, with large data
+everywhere. The complex has built secure cross-site data sharing (JUCE, an AWS-based unclassified
+cloud; DICE; OneID credentials; Genesis Mission; remote compute access). His point: "data access is
+necessary but not sufficient". There's little or no information on which data is interesting, which
+leads to bulk transfers and duplication. You "choose between keeping data at the source, with the
+SME, or close to compute". ViSUS remote data services allow partial, exploratory access.
+
+* _Riff, section 3/5_: the NNSA complex, with data at least as sensitive as PHI, built a shared,
+  credentialed, cross-site infrastructure. Hospitals have nothing like it -- each is on its own.
+* _Riff, section 6_: his "source or compute" choice isn't a choice in medicine. The data stays at the
+  source, so the compute has to go to it. His "which data is interesting" is HARBOR's registry
+  and Xu's "who even holds the data".
+
+*Kirby, "AURORA: Autonomous Utah Resource for Open Research Automation"* cite:[kirby2026aurora].
+NSF PCL test-bed node (Utah lead; Arkansas, Johns Hopkins/PARADIM, LBNL). The speaker notes are written
+for Taylor Sparks (PI) -- Kirby is co-PI for AI and the cross-node liaison. A self-driving lab for
+2D quantum materials, built by joining two existing NSF investments: MonArk's robots (50x faster than
+manual assembly) and CloudLab (20,000 users, 561,000 experiments). Its key points:
+
+* Reproducibility -- 70% of 1,576 surveyed researchers failed to reproduce another lab's experiment
+  (Baker, Nature 2016); the robots record every force, angle and timestamp.
+* "Fork-Validate-Merge": twin robots, with Arkansas as the dev sandbox and Utah as production. New
+  drivers and AI modules are validated on identical hardware before they merge.
+* A three-level AI stack: LLM reasoning (KnowMat), a VLM orchestrator, and tools (physics-aware
+  vision).
+* The ask to industry: "run proprietary workflows in encrypted containers ... full access logs, your
+  data stays yours"; "a safety check on every AI-generated plan". Alpha July 2027, Beta Jan 2028.
+
+* _Correction_: the deck's "Nodes that host clinical compute (Kirby)" is wrong. AURORA is a materials
+  lab with no clinical role. Re-point it.
+* _Riff, section 6_: Fork-Validate-Merge is how a hospital should deploy models -- fork into a research
+  enclave, validate on an identical stack, merge into clinical production. That's the path from
+  research to clinical that governance never gives small predictive models.
+* _Riff, section 6 / governance_: his industry offer -- encrypted containers, partitioned storage, full
+  access logs, data stays yours -- is the hospital's requirement almost word for word. NSF nodes are
+  already building that pattern for industry; extend it to hospitals.
+* _Riff, section 5_: AURORA was quick because it stood on infrastructure that already existed
+  (CloudLab). Hospitals have no CloudLab to stand on.
+
+*Alter, "Quantum Mechanics-Based Multitensor AI/ML ... from Small-Cohort, Noisy & High-Dimensional
+Data"* cite:[alter2026nsdf]. Utah (SCI, Huntsman); co-founder of Qalanit, Inc., so it's partly a
+company pitch. "Quantum mechanics-based" means the maths, not quantum hardware: generalised SVD /
+multitensor spectral decompositions -- exact, interpretable, cheap linear algebra. Predictors of
+response and survival from genomes and transcriptomes, validated across cohorts: a 19-patient
+NCI/Novartis trial, Genentech atezolizumab data beating tumour mutation burden, GBM overall survival
+beating age (ASCO 2026).
+
+* _Confirms 2C_: "small-cohort multiomics predictors" is accurate.
+* _Riff, section 2_: her slide 3 contrasts her method with "fat-data" deep learning and an LLM that
+  needed 10^4 more samples than features. Her talk is the session's clearest case that clinical AI
+  isn't LLMs -- name it when defining the kinds.
+* _Riff, section 3/5 -- the best one_: her slide 37, "Digital HPC". A small, interpretable,
+  non-generative model still needs protected cloud with on-demand compute: >50 TB of whole-genome BAM
+  files for one trial, and robustness runs over hundreds of perturbations. The model is small; the
+  data and the compute aren't. That's this talk's thesis, from the method's own author.
+* _Riff, section 4_: a deterministic linear-algebra predictor is the governance fast-lane case -- and
+  it would still be reviewed as "AI".
+
+=== How this talk uses them
 
 * *Allies to name.* Alter's method is exactly the non-LLM, predictive AI of section 2 -- and would hit
-  the governance wall of section 4. Xu's federated learning presupposes sites that can compute;
-  section 3 says most can't. Kirby's node is who the section 6 ask is addressed to.
+  the governance wall of section 4. Xu says the bottleneck is upstream of training; this talk says it's
+  further upstream still -- the site itself. Kirby's Fork-Validate-Merge and "data stays yours" containers are the deployment pattern
+  section 6 asks for. Bremer shows that a sector with data as
+  sensitive as PHI _can_ build shared cross-site infrastructure.
 * *Overlap risk.* Section 6 (compute-to-data, HARBOR) sits next to Xu's federated learning. Frame it
   as the precondition (sites need infrastructure and governance before they can join any federation),
   not a rival platform, or it reads as a product pitch.
 * *Session theme.* "Trustworthy autonomy": the clinical trust problem isn't autonomy, it's that
   institutions can't tell kinds of AI apart. Section 2's depth argument covers autonomy in one beat.
+  Xu's bounded agents are autonomy that a hospital _would_ have to tell apart.
 * *Discussion.* The 20-minute discussion is likely to come back to this talk because it disputes the
   premise. Prepare for: "isn't cloud the answer?" (KLAS: shallow), "what about FL?" (needs sites),
-  "BCH uses ChatGPT" (advisory, human-read).
+  "BCH uses ChatGPT" (advisory, human-read), and from Xu: "agents remove the per-site expert"
+  (yes -- if the site can host them and governance will let them in).
 
 == The argument
 
@@ -468,11 +571,14 @@ Shape concerns:
   measures and why it is there.
 * Name the kind of AI every time. Where a source doesn't (most adoption surveys count "any AI"),
   the slide says so.
-* Session call-outs on slides: Alter (2, closing), Xu (6, "move the computation"), Hart, Kirby and
-  Musen (6, the ask).
+* Session call-outs on slides (checked against the speakers' uploaded decks, 2026-10-18): Alter
+  (2, closing: "linear algebra, not an LLM"; 5, ">50 TB and HPC for one trial"), Bremer (5, the NNSA
+  labs' shared infrastructure; 6, "compute goes to the data"), Xu (6, FedReady puts an LLM agent and a
+  GPU inside every site), Kirby (6, AURORA's "your data stays yours" containers) and Hart (6, trust
+  for people and agents). Musen was dropped from the slides -- not in this session, talk not checked.
 * Serving: GitHub Pages at https://rudolphpienaar.github.io/NSDF2026/. `.github/workflows/pages.yml`
-  builds on every push to `master` with slidedown pinned to `6ea98f7` (FNNDSC/slidedown#2 head,
-  on top of the #1 merge) and deploys `talk/`. Repin to the #2 merge commit once merged. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
+  builds on every push to `master` with slidedown pinned to `c6947b3` (the FNNDSC/slidedown#2
+  merge on main, after #1) and deploys `talk/`. Bump the pin deliberately. LAN fallback: serve `talk/` locally.
 
 == Open questions
 

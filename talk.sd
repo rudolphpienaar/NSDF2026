@@ -506,7 +506,7 @@
     .div{.class{term}
 .typewriter{$> diff predictive generative}
       .o{Same word, two machines -- they warrant .bf{different trust}.}
-      .o{This session's example of the first kind: small-cohort multiomics predictors (Alter).}
+      .o{This session's example of the first kind: Alter's small-cohort multiomics predictors -- linear algebra, not an LLM.}
       .o{On "trustworthy autonomy": in the clinic the trust problem is not autonomy -- it is .bf{telling the two apart.}}
     }
     .div{.class{prompt} CALL IT ALL "AI" AND YOU GOVERN IT ALL LIKE A CHATBOT.}
@@ -637,9 +637,12 @@
     .div{.class{term}
 .typewriter{$> cat nsdf/themes.txt}
       .o{Federated data access. Provenance. Workflow portability. Governance.}
-      .o{Medicine needs exactly these -- under stricter rules.}
-      .o{One difference: .bf{the data cannot move.}}
+      .o{Medicine needs exactly these -- under stricter rules, and .bf{the data cannot move.}}
+      .o{Alter's small, interpretable predictor still needs .bf{>50 TB} and HPC for one trial.}
+      .o{The NNSA labs built shared, credentialed infrastructure across their sites (Bremer). Each hospital is on its own.}
     }
+    .div{.class{prompt} THE MODEL IS SMALL. THE DATA AND THE COMPUTE ARE NOT.}
+    .div{.class{src} Alter, NSDF Summit 2026, slide 37 (WGS alignment files, one trial) · Bremer (LLNL), NSDF Summit 2026}
   }
 }
 
@@ -682,9 +685,11 @@
       .o{Do not move the data. .bf{Move the computation.}}
       .o{Find the cohort, send the compute to it. Only results come back -- no images, no PHI.}
       .o{A small hospital joins with a key, not a data centre.}
-      .o{The precondition for federation: federated learning (Xu) needs sites that .bf{can compute}.}
+      .o{Xu: the bottleneck moved upstream of training. Here it's the site itself -- FedReady puts an LLM agent and a GPU .bf{inside every site}.}
+      .o{Bremer weighs data at the source against data near compute. Medicine has no choice: .bf{compute goes to the data.}}
     }
     .div{.class{prompt} DO NOT MOVE THE DATA. MOVE THE QUESTION.}
+    .div{.class{src} Xu (NVIDIA), Bremer (LLNL), NSDF Summit 2026}
   }
 }
 
@@ -696,10 +701,12 @@
     .div{.class{term}
 .typewriter{$> ask --audience=nsdf}
       .o{Treat hospitals as .bf{first-class sites} in national data fabrics.}
-      .o{Networks to hospitals (Hart). Nodes that host clinical compute (Kirby). Shared standards (Musen).}
+      .o{AURORA (Kirby) offers industry .bf{encrypted containers, full access logs, "your data stays yours."} Offer it to hospitals.}
+      .o{Trust for people .bf{and} agents (Hart) -- for data that stays sensitive for a lifetime.}
       .o{The hospital side brings the data and the questions.}
     }
     .div{.class{prompt} THE HOSPITALS LEAST ABLE TO COMPUTE NEED THIS MOST.}
+    .div{.class{src} Kirby/Sparks (AURORA, Utah), Hart (Internet2), NSDF Summit 2026}
   }
 }
 
